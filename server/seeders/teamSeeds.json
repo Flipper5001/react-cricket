@@ -1,0 +1,65 @@
+[
+  {
+    "teamName": "Australia",
+    "players": [
+      "Marcus Harris",
+      "David Warner",
+      "Marnus Labuschagne",
+      "Steve Smith",
+      "Travis Head",
+      "Cameron Green",
+      "Josh Inglis",
+      "Pat Cummins",
+      "Mitch Starc",
+      "Nathan Lyon",
+      "Josh Hazlewood"
+    ]
+  },
+  {
+    "teamName": "England",
+    "players": [
+      "Alex Lees",
+      "Zak Crawley",
+      "Joe Root",
+      "Dan Lawrence",
+      "Ben Stokes",
+      "Jonathan Bairstow",
+      "Ben Foakes",
+      "Chris Woakes",
+      "Craig Overton",
+      "Jack Leach",
+      "Saqib Mahmood"
+    ]
+  },
+  {
+    "teamName": "South Africa",
+    "players": [
+      "Dean Elgar",
+      "Sarel Erwee",
+      "Marco Jansen",
+      "Simon Harmer",
+      "Keshav Maharaj",
+      "Aiden Markam",
+      "Lungi Ngidi",
+      "Anrich Nortje",
+      "Keegan Petersen",
+      "Kagiso Rabada",
+      "Ryan Rickelton"
+    ]
+  },
+  {
+    "teamName": "New Zealand",
+    "players": [
+      "Kane Williamson",
+      "Tim Southee",
+      "Ish Sodhi",
+      "Mitchell Santner",
+      "Glenn Phillips",
+      "Jimmy Neesham",
+      "Daryl Mitchell",
+      "Adam Milne",
+      "Martin Guptill",
+      "Lachlan Ferguson"
+    ]
+  }
+]
