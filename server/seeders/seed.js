@@ -10,12 +10,12 @@ db.once('open', async () => {
     await User.deleteMany({});
     await Score.deleteMany({});
 
-    // await User.create(userSeeds);
-
+    
     for (let i = 0; i < teamSeeds.length; i++) {
       await Team.create(teamSeeds[i]);
     }
-
+    
+    await User.create(userSeeds);
     // for (let i = 0; i < scoreSeeds.length; i++) {
     //   await Team.create(scoreSeeds[i]);
     //   const { _id, user_id } = await User.findOneAndUpdate(
