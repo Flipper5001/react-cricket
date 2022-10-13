@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Score = require('./Score');
 
 const userSchema = new Schema({
   username: {
@@ -33,17 +34,25 @@ const userSchema = new Schema({
   id: false,
 });
 
-userSchema
-  .virtual('Highscore')
-  // Getter
-  .get(function () {
-    return;
-  })
-  // TODO Setter to query the database to pull highscore from username / user id
-  .set(function (user) {
-    // TODO code here
-    this.set({  }); // TODO highscore here
-  });
+// userSchema
+//   .virtual('Highscore')
+//   // Getter
+//   .get(async function () {
+//   });
+  
+//   userSchema.post('find', async function(results){
+
+//     for (let index = 0; index < results.length; index++) {
+//       const user = results[index];
+
+//       const currentUserScores =(await Score.find({user_id: user._id })).map(score => score.score);
+//       console.log({currentUserScores})
+//       const sum = currentUserScores.reduce((acc, next) => acc + next);
+//       console.log({sum})
+//       user.Highscore = sum;
+      
+//     }
+// })
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

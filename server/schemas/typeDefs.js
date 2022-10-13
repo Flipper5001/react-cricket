@@ -13,7 +13,7 @@ const typeDefs = gql`
     _id: ID
     user_id: User!
     team_id: User
-    score: String
+    score: Int
   }
 
   type Team {
@@ -29,6 +29,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    teams: [Team]
     # user(username: String!): User
     # thoughts(username: String): [Thought]
     # thought(thoughtId: ID!): Thought

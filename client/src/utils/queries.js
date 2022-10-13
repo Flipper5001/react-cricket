@@ -18,8 +18,6 @@ export const QUERY_TEAMS = gql`
       _id
       teamName
       players
-      
-    
     }
   }
 `;
