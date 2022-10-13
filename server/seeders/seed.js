@@ -10,25 +10,14 @@ db.once('open', async () => {
     await User.deleteMany({});
     await Score.deleteMany({});
 
+    await User.create(userSeeds);
     
     for (let i = 0; i < teamSeeds.length; i++) {
       await Team.create(teamSeeds[i]);
     }
+    await Score.create(scoreSeeds);
+
     
-    await User.create(userSeeds);
-    // for (let i = 0; i < scoreSeeds.length; i++) {
-    //   await Team.create(scoreSeeds[i]);
-    //   const { _id, user_id } = await User.findOneAndUpdate(
-    //     { _id: user_id },
-    //     {
-    //       $addToSet: {
-    //         team_id: _id,
-    //       },
-    //     }
-    //   );
-    // }
-
-
   } catch (err) {
     console.error(err);
     process.exit(1);
