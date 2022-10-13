@@ -2,6 +2,25 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Score, Team } = require('../models');
 const { signToken } = require('../utils/auth');
 
+
+
+
+const resolvers = {
+  Query: {
+    // teams
+    //  get all teams
+    getTeams: async () => {
+      return Team.find();
+    },
+    // TODO team
+    // TODO get team by id
+    team: async (parent, {teamId}) => {
+      return Team.findById({teamId})
+    },
+  }
+}
+
+
 // const resolvers = {
   // Query: {
   //   users: async () => {
@@ -10,14 +29,10 @@ const { signToken } = require('../utils/auth');
   //   user: async (parent, { username }) => {
   //     return User.findOne({ username }).populate('thoughts');
   //   },
-    // TODO teams
-    // TODO get all teams
   //   thoughts: async (parent, { username }) => {
   //     const params = username ? { username } : {};
   //     return Thought.find(params).sort({ createdAt: -1 });
   //   },
-    // TODO team
-    // TODO get team by id
   //   thought: async (parent, { thoughtId }) => {
   //     return Thought.findOne({ _id: thoughtId });
   //   },
