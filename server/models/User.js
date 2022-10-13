@@ -37,7 +37,7 @@ userSchema
   .virtual('Highscore')
   // Getter
   .get(function () {
-    return this.username;
+    return;
   })
   // TODO Setter to query the database to pull highscore from username / user id
   .set(function (user) {
