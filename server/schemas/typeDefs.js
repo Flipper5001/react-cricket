@@ -13,7 +13,7 @@ const typeDefs = gql`
     _id: ID
     user_id: User!
     team_id: User
-    score: String
+    score: Int
   }
 
   type Team {
