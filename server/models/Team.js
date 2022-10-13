@@ -10,13 +10,11 @@ const teamSchema = new Schema({
   },
   players: [
     {
-      playerName: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 20,
-      }
-    },
+      type: String,
+      required: true,
+      minlength: 1,
+      maxlength: 20,
+    }
   ],
 });
 

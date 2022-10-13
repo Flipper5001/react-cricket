@@ -10,10 +10,10 @@ db.once('open', async () => {
     await User.deleteMany({});
     await Score.deleteMany({});
 
-    await User.create(userSeeds);
+    // await User.create(userSeeds);
 
     for (let i = 0; i < teamSeeds.length; i++) {
-      await Team.create(thoughtSeeds[i]);
+      await Team.create(teamSeeds[i]);
     }
 
     // for (let i = 0; i < scoreSeeds.length; i++) {

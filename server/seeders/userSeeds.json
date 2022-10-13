@@ -3,60 +3,60 @@
     "username": "Sir DB",
     "email": "sirbd@room7.dreamteam",
     "password": "password01",
-    "team_id": "1"
+    "team_id": ""
   },
   {
     "username": "HowzatMan",
     "email": "howzatman@room7.dreamteam",
     "password": "password02",
-    "team_id": "2"
+    "team_id": ""
   },
   {
     "username": "All out for naught",
     "email": "aofn@room7.dreamteam",
     "password": "password03",
-    "team_id": "3"
+    "team_id": ""
   },
   {
     "username": "Six and Out",
     "email": "6andout@room7.dreamteam",
     "password": "password04",
-    "team_id": "4"
+    "team_id": ""
   },
   {
     "username": "1 4 1",
     "email": "141@room7.dreamteam",
     "password": "password05",
-    "team_id": "5"
+    "team_id": ""
   },
   {
     "username": "DynamicDuo",
     "email": "dduo@room7.dreamteam",
     "password": "password06",
-    "team_id": "6"
+    "team_id": ""
   },
   {
     "username": "Quick Single",
     "email": "quicksingle@room7.dreamteam",
     "password": "password07",
-    "team_id": "7"
+    "team_id": ""
   },
   {
     "username": "GllyGilly",
     "email": "gillygilly@room7.dreamteam",
     "password": "password08",
-    "team_id": "8"
+    "team_id": ""
   },
   {
     "username": "Donald Duck",
     "email": "dduck@room7.dreamteam",
     "password": "password09",
-    "team_id": "9"
+    "team_id": ""
   },
   {
     "username": "Swinging Man",
     "email": "swiningman@room7.dreamteam",
     "password": "password10",
-    "team_id": "10"
+    "team_id": ""
   }
 ]
