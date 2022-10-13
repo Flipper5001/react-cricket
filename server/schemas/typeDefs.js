@@ -31,7 +31,7 @@ const typeDefs = gql`
     users: [User],
     teams: [Team],
     team(_id: ID!): Team,
-    scores: [Score]
+    scores: [Score],
     # team(teamName: String): Team
     # user(username: String!): User
     # thoughts(username: String): [Thought]

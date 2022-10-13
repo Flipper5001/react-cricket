@@ -19,6 +19,9 @@ const resolvers = {
     },
     scores: async () => {
       return Score.find()
+    },
+    users: async () => {
+      return User.find()
     }
   },
 
