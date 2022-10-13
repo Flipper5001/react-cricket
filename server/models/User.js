@@ -19,13 +19,31 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+  team_id: 
+  {
+    type: Schema.Types.ObjectId,
+    ref: 'Team',
+  },
+
+}, 
+{
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
 });
+
+userSchema
+  .virtual('Highscore')
+  // Getter
+  .get(function () {
+    return this.username;
+  })
+  // TODO Setter to query the database to pull highscore from username / user id
+  .set(function (user) {
+    // TODO code here
+    this.set({  }); // TODO highscore here
+  });
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

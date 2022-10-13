@@ -6,22 +6,20 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
+    team_id: Team
   }
 
-  type Thought {
+  type Score {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+    user_id: User!
+    team_id: User
+    score: String
   }
 
-  type Comment {
+  type Team {
     _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+    teamName: String
+    playerName: [String]!
   }
 
   type Auth {
@@ -31,20 +29,20 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
-    me: User
+    # user(username: String!): User
+    # thoughts(username: String): [Thought]
+    # thought(thoughtId: ID!): Thought
+    # me: User
   }
 
-  type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
-  }
+  # type Mutation {
+    # addUser(username: String!, email: String!, password: String!): Auth
+    # login(email: String!, password: String!): Auth
+    # addThought(thoughtText: String!): Thought
+    # addComment(thoughtId: ID!, commentText: String!): Thought
+    # removeThought(thoughtId: ID!): Thought
+    # removeComment(thoughtId: ID!, commentId: ID!): Thought
+  # }
 `;
 
 module.exports = typeDefs;
