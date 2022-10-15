@@ -9,16 +9,31 @@ const resolvers = {
   Query: {
     // teams
     //  get all teams
-    getTeams: async () => {
+    teams: async () => {
       return Team.find();
     },
     // TODO team
     // TODO get team by id
-    team: async (parent, {teamId}) => {
-      return Team.findById({teamId})
+    team: async (parent, {_id}) => {
+      return Team.findById({_id})
     },
+    scores: async () => {
+      return Score.find()
+    },
+    users: async () => {
+      return User.find()
+    }
+  },
+
+
+  Mutation: {
+    addNewScore: async (parent, { userId, teamId, score }) => {
+      const newScore = await Score.create({ userId, teamId, score });
+      return newScore ;
+      },
+    }
   }
-}
+
 
 
 // const resolvers = {
@@ -138,4 +153,4 @@ const resolvers = {
   // },
 // };
 
-// module.exports = resolvers;
+module.exports = resolvers;
