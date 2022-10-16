@@ -34,26 +34,6 @@ const userSchema = new Schema({
   id: false,
 });
 
-// userSchema
-//   .virtual('Highscore')
-//   // Getter
-//   .get(async function () {
-//   });
-  
-//   userSchema.post('find', async function(results){
-
-//     for (let index = 0; index < results.length; index++) {
-//       const user = results[index];
-
-//       const currentUserScores =(await Score.find({user_id: user._id })).map(score => score.score);
-//       console.log({currentUserScores})
-//       const sum = currentUserScores.reduce((acc, next) => acc + next);
-//       console.log({sum})
-//       user.Highscore = sum;
-      
-//     }
-// })
-
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
