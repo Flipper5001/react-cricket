@@ -11,8 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
+import Team from './pages/Team';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -44,9 +43,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
+        <div className="flex-column justify-flex-start min-100-vh main-background" >
+          <div className="container my-auto">
             <Routes>
               <Route 
                 path="/" 
@@ -61,16 +59,8 @@ function App() {
                 element={<Signup />}
               />
               <Route 
-                path="/me" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/profiles/:username" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/thoughts/:thoughtId"
-                element={<SingleThought />}
+                path="/team/:username" 
+                element={<Team />}
               />
             </Routes>
           </div>
