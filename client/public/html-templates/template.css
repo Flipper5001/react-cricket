@@ -1,0 +1,23 @@
+.background {
+    background-image: url(./../assets/Howzat.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.input-form {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.logo-image {
+    border-radius: 50%;
+    border: 3px solid black;
+    max-width: 30%;
+}
+
+.logo-header {
+    font-family: 'Rammetto One', cursive;
+
+}
