@@ -7,7 +7,6 @@ const typeDefs = gql`
     email: String
     password: String
     team: Team
-    highscore: Int
   }
 
   type Score {
