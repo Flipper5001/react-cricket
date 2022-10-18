@@ -11,10 +11,11 @@ const typeDefs = gql`
 
   type Score {
     _id: ID
-    user_id: User!
-    team_id: User
+    user: User
+    team: Team
     score: Int
   }
+  # changed to team^^
 
   type Team {
     _id: ID

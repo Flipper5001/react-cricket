@@ -7,11 +7,11 @@ const Home = () => {
   return (
     <div className={css.interface}>
       <div className="my-4 text-center">
-        <h2 className="logo-header text-center">HOWZAT!</h2>
+        <h2 className={css.logoHeader}>HOWZAT!</h2>
       </div>
       <div className="h-80 text-center py-4 px-5">
         <div >
-            <h4 className="logo-header mb-3"> Highscores </h4>
+          <h4 className={css.logoHeader}> Highscores </h4>
         </div>
         <Highscores />
         <div className='row justify-center'>
