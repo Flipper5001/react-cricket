@@ -9,9 +9,16 @@ async function appendHighscoreFieldToUsers(users){
     
     for (let index = 0; index < users.length; index++) {
         const user = users[index];
-        const currentUserScores =(await Score.find({user_id: user._id })).map(score => score.score);
-        const sum = currentUserScores.reduce((acc, next) => acc + next);
-        user._doc.highscore = sum;
+        const currentUserScores =(await Score.find({user: user._id }));
+
+        const highest = currentUserScores.reduce((carry, next) => {
+            if(carry.score > next.score) {
+                return carry;
+            } else {
+                return next;
+            }
+        });
+        user._doc.highscore = highest;
         results.push(user);
     }
     return results
