@@ -36,6 +36,16 @@ export const ADD_TEAM = gql`
     players
   }
 }
+
+
 `;
 
+export const CHANGE_TEAM = gql `
+mutation ChangeTeam($players: [String]!, $teamId: ID!) {
+  changeTeam(players: $players, teamId: $teamId) {
+    teamName
+    players
+  }
+}
+`
 
