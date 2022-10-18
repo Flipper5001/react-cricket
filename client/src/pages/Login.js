@@ -16,12 +16,12 @@ const styles = {
     borderRadius: "5px",
     border: "2px solid black"
   },
-  logoHeader : {
-      fontFamily: 'Rammetto One',
-      fontWeight: "bold"
   
-  
-  }
+}
+ const logoHeader = {
+    fontFamily: 'Rammetto One',
+    fontWeight: "bold"
+
 
 }
 
@@ -63,7 +63,7 @@ const Login = (props) => {
     <main>
       <div className="row justify-content-center col 4 align-items-center my-4">
                 <div className="text-center mt-5">
-                    <h2 className={styles.logoHeader}>HOWZAT!</h2>
+                    <h2 className={logoHeader}>HOWZAT!</h2>
                 </div>
             </div>
       <div className="flex-row justify-center mb-4">

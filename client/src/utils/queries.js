@@ -20,6 +20,38 @@ export const QUERY_TEAMS = gql`
       players
     }
   }
+
+`;
+
+export const QUERY_USER = gql`
+  query User($userId: ID!) {
+  user(userId: $userId) {
+    username
+    email
+    team {
+      teamName
+      players
+      _id
+    }
+  }
+}
+
+`;
+
+export const QUERY_SCORES = gql`
+  query getAllScores {
+  scores {
+    score
+    user {
+      username
+    }
+    team {
+      teamName
+      players
+      _id
+    }
+  }
+}
 `;
 
 

@@ -18,11 +18,12 @@ const resolvers = {
       return User.find();
     },
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId }).populate('team');
+      return User.findOne({ _id: userId }).populate("team");
     },
     scores: async () => {
-      return Score.find().populate('team').populate('user');
+      return Score.find().populate("team").populate("user");
     },
+
   },
 
   Mutation: {
@@ -34,6 +35,33 @@ const resolvers = {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("No user found with this email address");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    addNewTeam: async (parent, { teamName, players }) => {
+      const team = await Team.create({ teamName, players });
+      return team;
+    },
+    changeTeam: async (parent, { teamId, players }) => {
+      const team = await Team.findByIdAndUpdate({ _id: teamId }, {
+        players, 
+      }, {new: true});
+      return team;
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
