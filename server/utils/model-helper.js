@@ -13,10 +13,8 @@ async function appendHighscoreFieldToUsers(users){
         const sum = currentUserScores.reduce((acc, next) => acc + next);
         user._doc.highscore = sum;
         results.push(user);
-  
     }
     return results
-
 }
 
 module.exports = {
