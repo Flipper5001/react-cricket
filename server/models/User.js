@@ -9,6 +9,7 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+
   email: {
     type: String,
     required: true,
@@ -25,6 +26,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Team',
   },
+  highscore: 
+  {
+    type: Number,
+    required: false
+  }
 
 }, 
 {

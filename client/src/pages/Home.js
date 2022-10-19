@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import Highscores from '../components/Highscores';
 import css from './Home.module.css';
 
+const users = {
+  user1: {
+    username: "fkbje",
+    highscore: 10
+  }
+}
+
+
+
 const Home = () => {
   return (
     <div className={css.interface}>
