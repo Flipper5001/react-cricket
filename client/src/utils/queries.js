@@ -54,6 +54,19 @@ export const QUERY_SCORES = gql`
 }
 `;
 
+export const QUERY_ME = gql`
+  query me {
+    me {
+      username
+      email
+      team {
+        teamName
+        players
+        _id
+    }
+  }
+}
+`;
 
 export const QUERY_BY_NAME = gql`
   query UserByName($username: String!) {
@@ -67,5 +80,4 @@ export const QUERY_BY_NAME = gql`
     }
   }
 }
-
-`
+`;

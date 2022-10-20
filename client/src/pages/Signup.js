@@ -59,9 +59,6 @@ const Signup = () => {
             <Form.Group className={css.formGroup}>
               <i class="fa fa-envelope fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
               <Form.Control type="email" name="email" id='email' placeholder='Email' value={formState.email} onChange={handleChange} />
-              {/* <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text> */}
             </Form.Group>
             <Form.Group className={css.formGroup}>
               <i class="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
