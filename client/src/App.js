@@ -60,7 +60,7 @@ function App() {
                 element={<Signup />}
               />
               <Route 
-                path="/team/:username" 
+                path="/my-team" 
                 element={<Team />}
               />
             </Routes>

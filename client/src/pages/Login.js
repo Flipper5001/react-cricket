@@ -43,26 +43,31 @@ const Login = (props) => {
 
   return (
     <div className={css.interface}>
-      <div className="my-4 text-center">
-        <h2 className={css.logoHeader}>HOWZAT!</h2>
+      <div className={css.homeHeader}>
+        <h2 className={css.logoHeader}>LOG IN</h2>
       </div>
-      <div className="flex-row justify-center mb-4">
-        <div className={css.formContainer}>
-              <Form className={css.inputForm} onSubmit={handleFormSubmit}>
-                <h4 className={css.logoHeader}> Log in </h4>  
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  {/* <Form.Label>Email address</Form.Label> */}
-                  <Form.Control type="email" className="form-control mb-3" placeholder='Email' onChange={handleChange}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  {/* <Form.Label>Password</Form.Label> */}
-                  <Form.Control type="password" className="form-control mb-3" placeholder='Password' onChange={handleChange}/>
-                </Form.Group>
-                <Button variant="primary" type="submit" style={{ cursor: 'pointer' }} className="btn btn-primary btn-block mb-2">
-                Log in
-              </Button>
-              </Form>
-        </div>
+      <div className="h-80 text-center py-4 px-5">
+        <Form className={css.inputForm} onSubmit={handleFormSubmit}>
+          <Form.Group className={css.formGroup} controlId="formBasicEmail">
+            <i class="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+            <Form.Control type="email" placeholder='Email' onChange={handleChange}/>
+          </Form.Group>
+          <Form.Group className={css.formGroup} controlId="formBasicPassword">
+            <i class="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+            <Form.Control type="password" placeholder='Password' onChange={handleChange}/>
+          </Form.Group>
+          <div className='row justify-center'>
+            <Button variant="primary" type="submit" style={{ cursor: 'pointer' }} className={css.interactiveButton}>
+              Log in
+            </Button>
+          </div>
+          <div className={css.formReturn}>
+            <p className='mr-1 my-0'>New to the game?</p>
+            <Link to="/signup" className={css.linkText}>
+              Signup now
+            </Link>
+          </div>
+        </Form>
       </div>
     </div>
   );

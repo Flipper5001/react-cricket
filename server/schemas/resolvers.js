@@ -10,13 +10,11 @@ const resolvers = {
     teams: async () => {
       return Team.find();
     },
-    // TODO team
-    // TODO get team by id
     team: async (parent, { teamId }) => {
       return Team.findOne({ _id: teamId });
     },
     users: async () => {
-      const users = await User.find();
+      const users = await User.find().sort({Score});
       const usersWithScores = await appendHighscoreFieldToUsers(users);
       // console.log({usersWithScores})
       return usersWithScores;

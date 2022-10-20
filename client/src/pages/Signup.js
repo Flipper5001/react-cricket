@@ -41,45 +41,50 @@ const Signup = () => {
 
   return (
     <div className={css.interface}>
-      <div className="my-4 text-center">
-        <h2 className={css.logoHeader}>HOWZAT!</h2>
+      <div className={css.homeHeader}>
+        <h2 className={css.logoHeader}>SIGN UP</h2>
       </div>
-      <div className="flex-row justify-center mb-4">
-        <div className={css.formContainer}>
-          {data ? (
-            <p>
-              Success! You may now head{' '}
-              <Link to="/">back to the homepage.</Link>
-            </p>
-          ) : (
-            <Form className={css.inputForm} onSubmit={handleFormSubmit}>
-              <h4 className={css.logoHeader}> Sign Up </h4>
-              <Form.Group>
-                {/* <Form.Label className='form-label' for='username'>Username</Form.Label> */}
-                <Form.Control type="text" name="username" id='username' className="form-control mb-3" placeholder='Username' value={formState.name} onChange={handleChange} />
-              </Form.Group>
-              <Form.Group>
-                {/* <Form.Label className='form-label' for='email'>Email</Form.Label> */}
-                <Form.Control type="email" name="email" id='email' className="form-control mb-3" placeholder='Email' value={formState.email} onChange={handleChange} />
-                {/* <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text> */}
-              </Form.Group>
-              <Form.Group>
-                {/* <Form.Label className='form-label' for='password'>Password</Form.Label> */}
-                <Form.Control type="password" name="password" id='password' className="form-control mb-3" placeholder='Password' value={formState.password} onChange={handleChange} />
-              </Form.Group>
-              <Button variant="primary" type="submit" style={{ cursor: 'pointer' }} className="btn btn-primary btn-block mb-2">
+      <div className="h-80 text-center py-4 px-5">
+        {data ? (
+          <p>
+            Success! You may now head{' '}
+            <Link to="/">back to the homepage.</Link>
+          </p>
+        ) : (
+          <Form className={css.inputForm} onSubmit={handleFormSubmit}>
+            <Form.Group className={css.formGroup}>
+              <i class="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <Form.Control type="text" name="username" id='username' placeholder='Username' value={formState.name} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className={css.formGroup}>
+              <i class="fa fa-envelope fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <Form.Control type="email" name="email" id='email' placeholder='Email' value={formState.email} onChange={handleChange} />
+              {/* <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text> */}
+            </Form.Group>
+            <Form.Group className={css.formGroup}>
+              <i class="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <Form.Control type="password" name="password" id='password' placeholder='Password' value={formState.password} onChange={handleChange} />
+            </Form.Group>
+            <div className='row justify-center'>
+              <Button variant="primary" type="submit" style={{ cursor: 'pointer' }} className={css.interactiveButton}>
                 Sign up
               </Button>
-            </Form>
-          )}
-          {error && (
-            <div className="my-3 p-3 bg-danger text-white">
-              {error.message}
             </div>
-          )}
-        </div>
+            <div className={css.formReturn}>
+            <p className='mr-1 my-0'>Return to</p>
+            <Link to="/login" className={css.linkText}>
+              Login
+            </Link>
+          </div>
+          </Form>
+        )}
+        {error && (
+          <div className="my-3 p-3 bg-danger text-white">
+            {error.message}
+          </div>
+        )}
       </div>
     </div>
   );

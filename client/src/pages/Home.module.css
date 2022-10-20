@@ -1,23 +1,74 @@
+:root {
+    --primary: rgba(20, 120, 160, 0.9);
+    --secondary: rgb(25, 188, 157, 0.9);
+}
+
 .interface {
-    padding: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgb(255, 255, 255, 0.5);
-    border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.homeHeader {
+    background-color: var(--primary);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .logoHeader {
-    font-family: 'Rammetto One';
-    font-weight: "bold";
+    font-family: inherit;
+    font-weight: bold;
     text-align: center;
+    color: white;
+    margin: 5px;
+}
+
+.header {
+    font-family: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+.interactiveButton {
+    background-color: var(--primary) !important;
+    text-decoration: none;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.interactiveButton:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(15, 101, 141, 0.9) !important;
+}
+
+.linkText {
+    color: var(--primary);
+    text-decoration: none !important;
+    font-size: 1.1rem;
+}
+
+.formGroup {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.formReturn {
+    display: flex;
+    padding-top: 5px;
+    justify-content: center;
 }
 
 .inputForm  {
     background-color: "white";
     margin: 10px 0px;
     padding: 5px 0px;
-}
-
-.formContainer {
-    border: "2px solid black";
-    border-radius: "5px";
 }
