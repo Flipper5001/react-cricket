@@ -54,4 +54,16 @@ export const QUERY_SCORES = gql`
 }
 `;
 
+export const QUERY_ME = gql`
+  query me {
+    me {
+      username
+      email
+      team {
+        teamName
+        players
+        _id
+    }
+  }
+`;
 

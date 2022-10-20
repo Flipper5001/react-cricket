@@ -1,36 +1,28 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import { QUERY_TEAM } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { username: userParam } = useParams();
+  const { username } = useParams();
 
-  // const { loading, data } = useQuery(userParam ? QUERY_TEAM : QUERY_ME, {
-  //   variables: { username: userParam },
-  // });
+  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  const { loading, data } = useQuery(
+    username ? QUERY_USERNAME : QUERY_ME,
+    {
+      variables: { username: username },
+    }
+  );
 
-  // const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
-  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //   return <Navigate to="/me" />;
-  // }
+  // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
+  const user = data?.me || data?.user || {};
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (!user?.username) {
-  //   return (
-  //     <h4>
-  //       You need to be logged in to see this. Use the navigation links above to
-  //       sign up or log in!
-  //     </h4>
-  //   );
-  // }
+  // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.User().data._id === username) {
+    return <Navigate to="/my-team" />;
+  }
 
   return (
     <div>
