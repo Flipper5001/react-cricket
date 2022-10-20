@@ -20,13 +20,18 @@ const Team = () => {
   const user = data?.me || data?.user || {};
 
   // Use React Router's `<Redirect />` component to redirect to personal Team page if username is yours
-  if (Auth.loggedIn() && Auth.getUser().data.username === username) {
-    return <Navigate to="/:username" />;
-  }
 
-  if (!user?.username) {
+
+  // when user is not logged in , kick out
+  if (!Auth.loggedIn()) {
     return <Navigate to="/login" />;
   }
+
+  // when user is logged in but vist the team with wrong username, redirect to the correct team page
+  if(Auth.getUser().username !== username){
+    return <Navigate to={"/team/" + Auth.getUser().username}/>
+  }
+
 
   return (
     <div>

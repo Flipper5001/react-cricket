@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME, QUERY_BY_NAME } from '../utils/queries';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import css from './Home.module.css';
@@ -38,6 +41,12 @@ const Signup = () => {
       console.error(e);
     }
   };
+
+  // If there is no `TeamId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  if (Auth.loggedIn()) {
+    const username = Auth.getUser().username;
+    return <Navigate to={"/team/" + username} />;
+  }
 
   return (
     <div className={css.interface}>
