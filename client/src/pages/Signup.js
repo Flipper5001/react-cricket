@@ -53,7 +53,7 @@ const Signup = () => {
         ) : (
           <Form className={css.inputForm} onSubmit={handleFormSubmit}>
             <Form.Group className={css.formGroup}>
-              <i class="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <i className="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
               <Form.Control type="text" name="username" id='username' placeholder='Username' value={formState.name} onChange={handleChange} />
             </Form.Group>
             <Form.Group className={css.formGroup}>
