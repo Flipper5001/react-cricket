@@ -4,6 +4,15 @@ import Highscores from '../components/Highscores';
 import css from './Home.module.css';
 import auth from '../utils/auth';
 
+const users = {
+  user1: {
+    username: "fkbje",
+    highscore: 10
+  }
+}
+
+
+
 const Home = () => {
   return (
     <div className={css.interface}>

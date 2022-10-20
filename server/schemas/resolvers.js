@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Score, Team } = require("../models");
 const { signToken } = require("../utils/auth");
-const { appendHighscoreFieldToUsers } = require("../utils/model-helper");
+const { appendHighscoreFieldToUsers, appendHighscoreFieldToUser } = require("../utils/model-helper");
 
 const resolvers = {
   Query: {
@@ -16,10 +16,15 @@ const resolvers = {
     users: async () => {
       const users = await User.find().sort({Score});
       const usersWithScores = await appendHighscoreFieldToUsers(users);
+      // console.log({usersWithScores})
       return usersWithScores;
     },
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId }).populate("team");
+      const user = await User.findOne({ _id: userId }).populate("team");
+      const userWithScore = await appendHighscoreFieldToUser(user);
+      console.log({userWithScore})
+      return userWithScore
+
     },
     scores: async () => {
       return Score.find().populate("team").populate("user");
@@ -28,8 +33,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addNewScore: async (parent, { userId, teamId, score }) => {
-      const newScore = await Score.create({ userId, teamId, score });
+    addNewScore: async (parent, { user, team, score }) => {
+      const newScore = await Score.create({ user, team, score });
       return newScore;
     },
     addUser: async (parent, { username, email, password }) => {

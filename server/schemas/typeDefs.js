@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     team: Team
+    highscore: Int
   }
 
   type Score {
@@ -15,7 +16,6 @@ const typeDefs = gql`
     team: Team
     score: Int
   }
-  # changed to team^^
 
   type Team {
     _id: ID
@@ -41,7 +41,7 @@ const typeDefs = gql`
     # me: User
   }
   type Mutation {
-    addNewScore(userId: ID!, teamId: ID!, score: String!): Score,
+    addNewScore(user: ID!, team: ID!, score: String!): Score,
     login(email: String!, password: String!): Auth,
     addUser(username: String!, email: String!, password: String!): Auth,
     addNewTeam(teamName: String!, players: [String]!): Team,
