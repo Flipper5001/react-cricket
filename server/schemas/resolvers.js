@@ -48,10 +48,13 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
+      console.log(email, password)
+
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("No user found with this email address");
+        console.log('hello!')
+        throw new AuthenticationError("No user found with this email lfhdjbdl address");
       }
 
       const correctPw = await user.isCorrectPassword(password);
