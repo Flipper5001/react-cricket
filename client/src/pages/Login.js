@@ -50,11 +50,11 @@ const Login = (props) => {
       <div className="h-80 text-center py-4 px-5">
         <Form className={css.inputForm} onSubmit={handleFormSubmit}>
           <Form.Group className={css.formGroup} controlId="formBasicEmail">
-            <i class="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+            <i className="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
             <Form.Control type="email" placeholder='Email' onChange={handleChange}/>
           </Form.Group>
           <Form.Group className={css.formGroup} controlId="formBasicPassword">
-            <i class="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+            <i className="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
             <Form.Control type="password" placeholder='Password' onChange={handleChange}/>
           </Form.Group>
           <div className='row justify-center'>

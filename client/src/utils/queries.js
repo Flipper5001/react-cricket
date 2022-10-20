@@ -65,6 +65,7 @@ export const QUERY_ME = gql`
         _id
     }
   }
+}
 `;
 
 export const QUERY_BY_NAME = gql`
@@ -79,5 +80,4 @@ export const QUERY_BY_NAME = gql`
     }
   }
 }
-
-`
+`;
