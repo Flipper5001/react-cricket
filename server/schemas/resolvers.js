@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Score, Team } = require("../models");
 const { signToken } = require("../utils/auth");
-const { appendHighscoreFieldToUsers, appendHighscoreFieldToUser } = require("../utils/model-helper");
+const { appendHighscoreFieldToUsers, appendHighscoreFieldToUser, orderScores } = require("../utils/model-helper");
 
 const resolvers = {
   Query: {
@@ -33,6 +33,12 @@ const resolvers = {
     },
     scores: async () => {
       return Score.find().populate("team").populate("user");
+    },
+    topFiveScores: async () => {
+      const scores = await Score.find().populate("team").populate("user");
+      console.log(scores)
+      const orderedScores =  orderScores(scores)
+      return orderedScores;
     },
 
     me: async (parent, args, context) => {

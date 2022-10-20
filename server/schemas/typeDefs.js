@@ -33,6 +33,7 @@ const typeDefs = gql`
     teams: [Team],
     team(teamId: ID!): Team,
     scores: [Score],
+    topFiveScores: [Score],
     user(userId: ID!): User,
     userByName(username: String!): User,
     # team(teamName: String): Team

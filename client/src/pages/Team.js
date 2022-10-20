@@ -20,7 +20,7 @@ const Team = () => {
   const user = data?.me || data?.user || {};
 
   // Use React Router's `<Redirect />` component to redirect to personal Team page if username is yours
-  if (Auth.loggedIn() && Auth.User().data.username === username) {
+  if (Auth.loggedIn() && Auth.getUser().data.username === username) {
     return <Navigate to="/:username" />;
   }
 
