@@ -22,9 +22,14 @@ const resolvers = {
     user: async (parent, { userId }) => {
       const user = await User.findOne({ _id: userId }).populate("team");
       const userWithScore = await appendHighscoreFieldToUser(user);
-      console.log({userWithScore})
       return userWithScore
 
+    },
+
+    userByName: async (parent, {username}) => {
+      const user = await User.findOne({ username: username }).populate("team");
+      const userWithScore = await appendHighscoreFieldToUser(user);
+      return userWithScore
     },
     scores: async () => {
       return Score.find().populate("team").populate("user");

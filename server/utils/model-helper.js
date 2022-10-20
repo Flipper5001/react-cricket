@@ -35,6 +35,10 @@ async function appendHighscoreFieldToUser(user) {
   const currentUserScores = await Score.find({ user: user._id });
 
 
+  if(currentUserScores.length == 0 ) {
+    return user;
+  }
+
 
   if (currentUserScores.length >= 2) {
     const highestScore = currentUserScores.reduce((carry, next) => {

@@ -67,3 +67,17 @@ export const QUERY_ME = gql`
   }
 `;
 
+export const QUERY_BY_NAME = gql`
+  query UserByName($username: String!) {
+  userByName(username: $username) {
+    email
+    _id
+    username
+    team {
+      teamName
+      players
+    }
+  }
+}
+
+`
