@@ -4,16 +4,16 @@ import Highscores from '../components/Highscores';
 import css from './Home.module.css';
 import auth from '../utils/auth';
 
-const users = {
-  user1: {
-    username: "fkbje",
-    highscore: 10
-  }
-}
-
-
-
 const Home = () => {
+  function renderNavLinks(){
+
+    if(true){
+      return (
+        <div>....</div>
+      )
+
+    }
+  }
   return (
     <div className={css.interface}>
       <div className={css.homeHeader}>
@@ -22,6 +22,11 @@ const Home = () => {
       <div className="h-80 text-center py-4 px-5">
         <h4 className={css.header}> Highscores </h4>
         <Highscores />
+
+        {renderNavLinks()}
+        {condition && (
+
+        )}
         <div className='row justify-center'>
           <Link className={css.interactiveButton} to="/login">
             Login

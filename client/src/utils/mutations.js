@@ -27,7 +27,7 @@ export const ADD_SCORE = gql`
     score
   }
 }
-`
+`;
 
 export const ADD_TEAM = gql`
   mutation AddNewTeam($teamName: String!, $players: [String]!) {
@@ -36,8 +36,6 @@ export const ADD_TEAM = gql`
     players
   }
 }
-
-
 `;
 
 export const CHANGE_TEAM = gql `
@@ -47,5 +45,5 @@ mutation ChangeTeam($players: [String]!, $teamId: ID!) {
     players
   }
 }
-`
+`;
 

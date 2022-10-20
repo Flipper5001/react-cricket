@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME, QUERY_BY_NAME } from '../utils/queries';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import css from './Home.module.css';
@@ -44,6 +47,11 @@ const Login = (props) => {
     });
   };
 
+  if (Auth.loggedIn()) {
+    const username = Auth.getUser().username;
+    return <Navigate to={"/team/" + username} />;
+  }
+
   return (
     <div className={css.interface}>
       <div className={css.homeHeader}>
@@ -53,11 +61,11 @@ const Login = (props) => {
         <Form className={css.inputForm} onSubmit={handleFormSubmit}>
           <Form.Group className={css.formGroup} controlId="formBasicEmail">
             <i className="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
-            <Form.Control type="email" placeholder='Email' onChange={handleChange}/>
+            <Form.Control type="email" name="email" placeholder="email" value={formState.email} onChange={handleChange}/>
           </Form.Group>
           <Form.Group className={css.formGroup} controlId="formBasicPassword">
             <i className="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
-            <Form.Control type="password" placeholder='Password' onChange={handleChange}/>
+            <Form.Control type="password" name="password"  placeholder="Password" value={formState.password} onChange={handleChange}/>
           </Form.Group>
           <div className='row justify-center'>
             <Button variant="primary" type="submit" style={{ cursor: 'pointer' }} className={css.interactiveButton}>
