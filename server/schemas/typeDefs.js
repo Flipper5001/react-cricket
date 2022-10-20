@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -33,13 +33,15 @@ const typeDefs = gql`
     teams: [Team],
     team(teamId: ID!): Team,
     scores: [Score],
+    topFiveScores: [Score],
     user(userId: ID!): User,
-    userByName(username: String!): User
+    userByName(username: String!): User,
     me: User
     # team(teamName: String): Team
     # user(username: String!): User
     # thoughts(username: String): [Thought]
     # thought(thoughtId: ID!): Thought
+    me: User
   }
   type Mutation {
     addNewScore(user: ID!, team: ID!, score: String!): Score,

@@ -81,3 +81,18 @@ export const QUERY_BY_NAME = gql`
   }
 }
 `;
+
+export const QUERY_TOP_5_SCORES = gql `
+  query TopFiveScores {
+  topFiveScores {
+    score
+    team {
+      teamName
+    }
+    user {
+      username
+    }
+  }
+}
+
+`
