@@ -63,6 +63,7 @@ export const QUERY_BY_NAME = gql`
     username
     team {
       teamName
+      players
     }
   }
 }
