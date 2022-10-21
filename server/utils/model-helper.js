@@ -61,7 +61,6 @@ async function orderScores(scores) {
   const sortedScores =  scores.sort((b,a) => a.score - b.score);
   const topFiveScores = sortedScores.slice(0,5)
   return topFiveScores;
-  console.log(sortedScores)
 }
 
 module.exports = {

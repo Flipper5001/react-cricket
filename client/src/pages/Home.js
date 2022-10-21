@@ -2,7 +2,10 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Highscores from '../components/Highscores';
 import css from './Home.module.css';
+import { useQuery } from '@apollo/client';
+
 import auth from '../utils/auth';
+import { QUERY_TOP_5_SCORES } from '../utils/queries';
 
 const Home = () => {
   // function renderNavLinks(){
@@ -14,6 +17,9 @@ const Home = () => {
 
   //   }
   // }
+
+  const { loading, data } = useQuery(QUERY_TOP_5_SCORES);
+  const scores = data?.topFiveScores || [];
   
   return (
     <div className={css.interface}>
@@ -22,8 +28,16 @@ const Home = () => {
       </div>
       <div className="h-80 text-center py-4 px-5">
         <h4 className={css.header}> Highscores </h4>
-        <Highscores />
-
+        </div>
+        <div className="col-12 mb-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <Highscores
+              scores={scores}
+              title="Highscores"
+            />
+          )}
         {/* {renderNavLinks()}
         {condition && (
 
