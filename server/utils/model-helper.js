@@ -58,11 +58,9 @@ async function appendHighscoreFieldToUser(user) {
   return user;
 }
 async function orderScores(scores) {
-  console.log(scores)
   const sortedScores =  scores.sort((b,a) => a.score - b.score);
   const topFiveScores = sortedScores.slice(0,5)
   return topFiveScores;
-  console.log(sortedScores)
 }
 
 module.exports = {

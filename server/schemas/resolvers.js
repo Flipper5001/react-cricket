@@ -36,7 +36,6 @@ const resolvers = {
     },
     topFiveScores: async () => {
       const scores = await Score.find().populate("team").populate("user");
-      console.log(scores)
       const orderedScores =  orderScores(scores)
       return orderedScores;
     },
