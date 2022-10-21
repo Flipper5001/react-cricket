@@ -5,15 +5,16 @@ import css from './Home.module.css';
 import auth from '../utils/auth';
 
 const Home = () => {
-  function renderNavLinks(){
+  // function renderNavLinks(){
 
-    if(true){
-      return (
-        <div>....</div>
-      )
+  //   if(true){
+  //     return (
+  //       <div>....</div>
+  //     )
 
-    }
-  }
+  //   }
+  // }
+  
   return (
     <div className={css.interface}>
       <div className={css.homeHeader}>
@@ -23,10 +24,10 @@ const Home = () => {
         <h4 className={css.header}> Highscores </h4>
         <Highscores />
 
-        {renderNavLinks()}
+        {/* {renderNavLinks()}
         {condition && (
 
-        )}
+        )} */}
         <div className='row justify-center'>
           <Link className={css.interactiveButton} to="/login">
             Login

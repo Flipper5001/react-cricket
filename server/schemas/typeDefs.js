@@ -36,7 +36,6 @@ const typeDefs = gql`
     topFiveScores: [Score],
     user(userId: ID!): User,
     userByName(username: String!): User,
-    me: User
     # team(teamName: String): Team
     # user(username: String!): User
     # thoughts(username: String): [Thought]
