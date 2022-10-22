@@ -1,14 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, useParams, Link } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
-import {
-  QUERY_ME,
-  QUERY_BY_NAME,
-  QUERY_TEAMS,
-  QUERY_TEAM,
-} from "../utils/queries";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import React from "react";
+import { Navigate, useParams } from "react-router-dom";
 import TeamForm from "../components/TeamForm";
 import css from "./Team.module.css";
 import Auth from "../utils/auth";
@@ -16,24 +7,12 @@ import australiaImage from "../assets/australia.png";
 import newzealandImage from "../assets/newzealand.png";
 import southafricaImage from "../assets/southafrica.png";
 import englandImage from "../assets/england.png";
-
 const Team = () => {
 
-  const playerName = '';
+  // TODO: CSS styling for team selection
+  // TODO: when click flag auto fill team and team name with country
+
   const { username } = useParams();
-
-  // If there is no `TeamId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-  const { data } = useQuery(username ? QUERY_BY_NAME : QUERY_ME, {
-    variables: { username: username },
-  });
-
-
-
-
-
-
-  // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_Team` query
-  const user = data?.me || data?.user || {};
 
   // when user is not logged in , kick out
   if (!Auth.loggedIn()) {
@@ -44,11 +23,6 @@ const Team = () => {
   if (Auth.getUser().username !== username) {
     return <Navigate to={"/team/" + Auth.getUser().username} />;
   }
-
-  
-
-  
-
 
   const australia = {
     backgroundImage: `url(${australiaImage})`,

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import css from './Game.module.css';
 import bat from '../../assets/bat.png';
 import ball from '../../assets/ball.png';
+import EndGame from '../EndGame';
+
+// TODO: CSS animations for hit, miss and out
+// TODO: when animation is playing hide button temporary???
 
 const hr = {
     marginTop: "10px",
@@ -31,6 +35,7 @@ export default class Game extends Component {
             ball: 0,
             over: 0,
             batter1OnStrike: true,
+            gameOver: false,
         }
     }
 
@@ -45,45 +50,127 @@ export default class Game extends Component {
             this.showAnimation(score)
         }
     }
-
+    
     showAnimation(action) {
         
         this.calculateScore(action)
     }
-
+    
     calculateScore(score) {
-        // if(score === "out") {
-        //     this.ball = this.ball + 1;
-        //     console.log(score)
-        //     console.log(this.ball)
-        // } else if(score === "miss") {
-        //     this.ball = this.ball + 1;
-        //     console.log(score)
-        //     console.log(this.ball)
-        // } else {
-
-            // this.prototype.ball = this.ball;
-
+        let newBowlerRuns = this.state.bowlerRuns + score
+        let newBowlerWickets = this.state.bowlerWickets + 1;
+        let newBatter1 = this.state.batter1 + score
+        let newBatter2 = this.state.batter2 + score
         let newBall = this.state.ball + 1;
         let newOver = this.state.over;
-        if(newBall == 6){
+        
+        if(score === "out")
+        {
+            let newTotalWickets = this.state.totalWickets + 1;
+
+            if(this.state.totalWickets === 9){
+                this.setState({
+                    gameOver: true
+                })
+            }
+
+            if(this.state.batter1OnStrike){
+                this.setState({
+                    batter1: 0
+                })
+            } else {
+                this.setState({
+                    batter2: 0
+                })
+            }
+            
+            this.setState({
+                bowlerWickets: newBowlerWickets,
+                totalWickets: newTotalWickets,
+            })
+        }
+
+        if(!isNaN(score))
+        {
+            let newTotalScore = this.state.totalScore + score
+            if(this.state.batter1OnStrike){
+                this.setState({
+                    batter1: newBatter1
+                })
+            } else {
+                this.setState({
+                    batter2: newBatter2
+                })
+            }
+
+            if(score % 2 !== 0 ) {
+                this.setState({
+                    batter1OnStrike: !this.state.batter1OnStrike
+                })
+            }
+
+            this.setState({
+                totalScore: newTotalScore,
+                bowlerRuns: newBowlerRuns
+            })
+        }
+        
+        if(newBall === 6){
             newBall = 0;
             newOver++;
+            this.setState({
+                batter1OnStrike: !this.state.batter1OnStrike,
+                bowlerRuns: 0,
+                bowlerWickets: 0
+            })
+        }
+        
+        if(this.state.over === 19 && this.state.ball === 5){
+            this.setState({
+                gameOver: true
+            })
         }
 
         this.setState({
             ball: newBall,
             over: newOver
         })
-        
-        if(score % 2 !== 0) {
-            this.state.batter1OnStrike = !this.state.batter1OnStrike
-            console.log(this.state.batter1OnStrike)
+
+        if(this.state.batter1OnStrike){
+            this.onStrike(true)
+        } else {
+            this.offStrike(true)
+        }
+    }
+
+    onStrike(strike) {
+        if(!strike){
+            return;
+        } else {
+        this.offStrike(false)
+        return (
+            <img src={bat} className={css.icon} style={{maxWidth: "20px"}} alt="bat_icon"></img>
+            )
+        }
+    }
+
+    offStrike(strike) {
+        if(!strike){
+            return;
+        } else {
+        this.onStrike(false)
+        return (
+            <img src={bat} className={css.icon} style={{maxWidth: "20px"}} alt="bat_icon"></img>
+            )
         }
     }
 
     render() {
         return (
+            <>
+            {this.state.gameOver ?  (
+                <EndGame score={this.state.totalScore.toString()} />
+            ) : (
             <>
             <div className='d-flex justify-center mb-3'>
                 <div className={css.scoreboard}>
@@ -116,7 +203,7 @@ export default class Game extends Component {
                         <div className='col-9'>
                         <div className='flex-row'>
                             <p className={css.scoreboardFont}>Dummy Data Batter 1</p>
-                            <img src={bat} className={css.icon} style={{maxWidth: "20px"}} alt="bat_icon"></img>
+                            {this.state.batter1OnStrike && this.onStrike(true)}
                         </div>
                         </div>
                         <div className='col-3'>
@@ -128,7 +215,7 @@ export default class Game extends Component {
                         <div className='col-9'>
                         <div className='flex-row'>
                             <p className={css.scoreboardFont}>Dummy Data Batter 2</p>   
-                            {/* <img src={bat} className={css.icon} style={{maxWidth: "20px"}}></img>      show when odd number is rolled and players swap        */}
+                            {!this.state.batter1OnStrike && this.offStrike(true)}   
                         </div>
                         </div>
                         <div className='col-3'>
@@ -139,7 +226,7 @@ export default class Game extends Component {
                     <div className='flex-row align-center pb-2'>
                         <div className='col-9'>
                         <div className='flex-row'>
-                            <p className={css.scoreboardFont}>Dummy Data Bowler Current</p>
+                            <p className={css.scoreboardFont}>Current Bowler</p>
                             <img src={ball} className={css.icon} style={{maxWidth: "15px"}} alt="ball_icon"></img>
                         </div>
                         </div>
@@ -166,6 +253,8 @@ export default class Game extends Component {
                     <button type='button' className={css.choiceButton} onClick={() => {this.shot(shot.swing)}}>Big Swing</button>
                 </div>
             </div>
+        </>
+        )}
         </>
         )
     }
