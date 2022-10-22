@@ -18,6 +18,17 @@
     border-top-right-radius: 10px;
 }
 
+.highscoresHeader {
+    background-color: var(--primary);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .logoHeader {
     font-family: inherit;
     font-weight: bold;
@@ -33,15 +44,21 @@
 }
 
 .interactiveButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--primary) !important;
     text-decoration: none;
     color: white;
     border: 0;
+    height: 40px;
     border-radius: 5px;
     text-align: center;
     width: 50%;
     padding: 5px;
-    margin: 5px;
+    margin: 10px 5px;
+    font-weight: 500;
+    font-size: 1.25rem;
 }
 
 .interactiveButton:hover {
@@ -67,6 +84,7 @@
     display: flex;
     padding-top: 5px;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .inputForm  {
@@ -80,4 +98,23 @@
     border-width: 3px;
     opacity: 80%;
     border-radius: 10px
+}
+
+.logoutHeader {
+    width: 220px;
+    margin-left: auto;
+}
+
+.logoutButton {
+    background-color: var(--primary) !important;
+    color: white;
+    border: 0;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    padding: 5px;
+    margin: 10px 5px;
+    font-weight: 500;
+    font-size: 1.25rem;
 }

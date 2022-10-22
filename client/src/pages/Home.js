@@ -1,22 +1,21 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Highscores from '../components/Highscores';
 import css from './Home.module.css';
 import { useQuery } from '@apollo/client';
-
 import auth from '../utils/auth';
 import { QUERY_TOP_5_SCORES } from '../utils/queries';
 
 const Home = () => {
-  // function renderNavLinks(){
-
-  //   if(true){
-  //     return (
-  //       <div>....</div>
-  //     )
-
-  //   }
-  // }
+  function renderGameButton(){
+    return (
+    <div className='row justify-center pb-3'>
+      <Link className={css.interactiveButton} to={"/team/" + auth.getUser().username}>
+        Let's Play!
+      </Link>
+    </div>
+    )
+  }
 
   const { loading, data } = useQuery(QUERY_TOP_5_SCORES);
   const scores = data?.topFiveScores || [];
@@ -38,10 +37,9 @@ const Home = () => {
               title="Highscores"
             />
           )}
-        {/* {renderNavLinks()}
-        {condition && (
-
-        )} */}
+        {auth.loggedIn() ? (
+          renderGameButton()
+        ) : (
         <div className='row justify-center'>
           <Link className={css.interactiveButton} to="/login">
             Login
@@ -53,6 +51,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        )}
       </div>
     </div>
   );

@@ -45,6 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-content-center min-100-vh main-background" >
+          <Header />
           <div className="container my-auto">
             <Routes>
               <Route 

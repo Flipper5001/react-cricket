@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME, QUERY_BY_NAME } from '../utils/queries';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import css from './Home.module.css';
@@ -58,12 +56,6 @@ const Login = (props) => {
         <h2 className={css.logoHeader}>LOG IN</h2>
       </div>
       <div className="h-80 text-center py-4 px-5">
-      {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
         <Form className={css.inputForm} onSubmit={handleFormSubmit}>
           <Form.Group className={css.formGroup} controlId="formBasicEmail">
             <i className="fa fa-user-circle fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
@@ -85,7 +77,6 @@ const Login = (props) => {
             </Link>
           </div>
         </Form>
-        )}
       </div>
     </div>
   );
