@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import bat from '../assets/bat.png';
 import ball from '../assets/ball.png';
@@ -8,12 +8,41 @@ import Game from '../utils/Game';
 
 const Play = () => {
 
+  // IDEAS
+
+    // All variables shown on screen could be changed to state variables, and the functions are only used to get the numbers in order to add to the state variables
+    // e.g. 
+    // handleCurrentScore  = () => {
+    //  const newScore = game.drive()
+    //  const totalScore = currentScore + newScore
+    //
+    //
+    //}
+    // We pass in the old game on every function
+  
+    const [currentScore, setCurrentScore] = useState('');
+    const [ball, setBall] = useState(0);
+
+    
   // when user is not logged in , kick out
   if (!auth.loggedIn()) {
     return <Navigate to="/login" />;
   }
 
+
+  const handleCurrentScore = () => {
+
+  }
+
+
+  const handleBalls = (event) => {
+    setBall(ball ++)
+  }
+
+
   const game = new Game();
+
+  console.log(game)
 
   const hr = {
     marginTop: "10px",
@@ -37,7 +66,7 @@ const Play = () => {
                   <h2 className={css.teamName} style={{paddingRight: "10px"}}>Over</h2>
                   <h2 className={css.teamName} >{game.over}</h2>
                   <h2 className={css.teamName} >.</h2>
-                  <h2 className={css.teamName} >{game.ball}</h2>
+                  <h2 className={css.teamName} >{ball}</h2>
                 </div>
               </div>
               <div className='col-3' style={{paddingRight: "5px"}}>

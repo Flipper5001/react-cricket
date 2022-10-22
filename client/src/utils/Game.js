@@ -1,15 +1,15 @@
 export default class Game {
 
-    constructor() {
-        this.batter1 = 0;
-        this.batter2 = 0;
-        this.bowlerWickets = 0;
-        this.bowlerRuns = 0;
-        this.totalWickets = 0;
-        this.totalScore = 0;
-        this.ball = 0;
+    constructor(ongoingGame) {
+        this.batter1 = ongoingGame.batter1 || 0;
+        this.batter2 = ongoingGame.batter2 || 0;
+        this.bowlerWickets = ongoingGame.bowlerWickets || 0;
+        this.bowlerRuns = ongoingGame.bowlerRuns || 0;
+        this.totalWickets = ongoingGame.totalWickets || 0;
+        this.totalScore = ongoingGame.totalScore || 0;
+        this.ball = ongoingGame.ball || 0;
         this.over = Math.round(this.ball/6);
-        this.batter1OnStrike = true;
+        this.batter1OnStrike = ongoingGame.batter1OnStrike || true;
         this.block = this.block.bind(this);
     }
 
