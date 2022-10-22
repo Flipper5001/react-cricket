@@ -5,6 +5,7 @@ import ball from '../assets/ball.png';
 import css from './Play.module.css';
 import auth from '../utils/auth';
 import Game from '../utils/Game';
+import EndGame from "../components/EndGame";
 
 const Play = () => {
 
@@ -123,6 +124,8 @@ const Play = () => {
     <div className={css.animations}>
 
     </div>
+
+    
     <div className={css.playground}>
       <div className={css.choices}>
         <button type='button' className={css.choiceButton} onClick={() => {game.block()}}>Block</button>
@@ -132,6 +135,8 @@ const Play = () => {
         <button type='button' className={css.choiceButton} onClick={() => {game.swing()}}>Big Swing</button>
       </div>
     </div>
+
+    
   </>
   );
 };
