@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import bat from '../assets/bat.png';
+import ball from '../assets/ball.png';
 import css from './Play.module.css';
 import auth from '../utils/auth';
+import Game from '../utils/Game';
 
 const Play = () => {
 
@@ -10,13 +13,16 @@ const Play = () => {
     return <Navigate to="/login" />;
   }
 
+  const game = new Game();
+
   const hr = {
     marginTop: "10px",
     marginBottom: "10px"
   }
 
   return (
-    <div className='flex-row mb-3'>
+    <>
+    <div className='d-flex justify-center mb-3'>
       <div className={css.scoreboard}>
         <div className={css.interface}>
           <div className={css.homeHeader}>
@@ -29,51 +35,75 @@ const Play = () => {
               <div className='col-9'>
                 <div className='flex-row'>
                   <h2 className={css.teamName} style={{paddingRight: "10px"}}>Over</h2>
-                  <h2 className={css.teamName} >0.5</h2>
+                  <h2 className={css.teamName} >{game.over}</h2>
+                  <h2 className={css.teamName} >.</h2>
+                  <h2 className={css.teamName} >{game.ball}</h2>
                 </div>
               </div>
               <div className='col-3' style={{paddingRight: "5px"}}>
                 <div className={css.scoreCombo}>
-                    <h2 className={css.teamName}>0</h2>
-                    <h2 className={css.teamName}>|</h2>
-                    <h2 className={css.teamName}>244</h2>
+                    <h2 className={css.teamName} style={{paddingRight: "5px"}}>{game.totalWickets}</h2>
+                    <h2 className={css.teamName} >|</h2>
+                    <h2 className={css.teamName} style={{paddingLeft: "5px"}}>{game.totalScore}</h2>
                 </div>
               </div>
             </div>
           </div>
           <div className='flex-row align-center mt-2'>
             <div className='col-9'>
-              <p className={css.scoreboardFont}>Dummy Data Batter 1</p>
+              <div className='flex-row'>
+                <p className={css.scoreboardFont}>Dummy Data Batter 1</p>
+                <img src={bat} className={css.icon} style={{maxWidth: "20px"}} alt="bat_icon"></img>
+              </div>
             </div>
             <div className='col-3'>
-              <p className={css.scoreboardFont} style={{textAlign: "end"}}>211</p>
+              <p className={css.scoreboardFont} style={{textAlign: "end"}}>{game.batter1}</p>
             </div>
           </div>
           <hr style={hr}/>
           <div className='flex-row align-center'>
             <div className='col-9'>
-              <p className={css.scoreboardFont}>Dummy Data Batter 2</p>
+            <div className='flex-row'>
+                <p className={css.scoreboardFont}>Dummy Data Batter 2</p>   
+                {/* <img src={bat} className={css.icon} style={{maxWidth: "20px"}}></img>      show when odd number is rolled and players swap        */}
+              </div>
             </div>
             <div className='col-3'>
-              <p className={css.scoreboardFont} style={{textAlign: "end"}}>11</p>
+              <p className={css.scoreboardFont} style={{textAlign: "end"}}>{game.batter2}</p>
             </div>
           </div>
           <hr style={hr}/>
           <div className='flex-row align-center pb-2'>
             <div className='col-9'>
-              <p className={css.scoreboardFont}>Dummy Data Bowler Current</p>
+              <div className='flex-row'>
+                <p className={css.scoreboardFont}>Dummy Data Bowler Current</p>
+                <img src={ball} className={css.icon} style={{maxWidth: "15px"}} alt="ball_icon"></img>
+              </div>
             </div>
             <div className='col-3'>
               <div className={css.scoreCombo}>
-                <p style={{fontWeight: 500, marginBottom: 0}}>0</p>
+                <p style={{fontWeight: 500, marginBottom: 0, paddingRight: "5px"}}>{game.bowlerWickets}</p>
                 <p style={{fontWeight: 500, marginBottom: 0}}>|</p>
-                <p style={{fontWeight: 500, marginBottom: 0}}>141</p>
+                <p style={{fontWeight: 500, marginBottom: 0, paddingLeft: "5px"}}>{game.bowlerRuns}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div className={css.animations}>
+
+    </div>
+    <div className={css.playground}>
+      <div className={css.choices}>
+        <button type='button' className={css.choiceButton} onClick={() => {game.block()}}>Block</button>
+        <button type='button' className={css.choiceButton} onClick={() => {game.drive()}}>Drive</button>
+        <button type='button' className={css.choiceButton} onClick={() => {game.random()}}>Random</button>
+        <button type='button' className={css.choiceButton} onClick={() => {game.scoop()}}>Scoop</button>
+        <button type='button' className={css.choiceButton} onClick={() => {game.swing()}}>Big Swing</button>
+      </div>
+    </div>
+  </>
   );
 };
 

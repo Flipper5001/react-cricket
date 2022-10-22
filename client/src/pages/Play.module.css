@@ -1,10 +1,10 @@
 :root {
     --primary: rgba(20, 120, 160, 0.9);
-    --secondary: rgb(25, 188, 157, 0.9);
+    --secondary: rgba(159, 176, 86, 0.9);
 }
 
 .scoreboard {
-    width: 400px;
+    width: 600px;
 }
 
 .interface {
@@ -30,11 +30,42 @@
 .scoreCombo {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .scoreboardFont {
-    padding-left: 10px;
+    padding-left: 15px;
     font-weight: 500;
     margin-bottom: 0px;
+}
+
+.icon {
+    position: absolute;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.choiceButton {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary) !important;
+    text-decoration: none;
+    color: white;
+    border: 0;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+    padding: 5px;
+    margin: 10px 5px;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.animations {
+    height: 300px;
 }

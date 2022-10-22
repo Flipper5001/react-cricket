@@ -1,6 +1,6 @@
 :root {
     --primary: rgba(20, 120, 160, 0.9);
-    --secondary: rgb(25, 188, 157, 0.9);
+    --secondary: rgba(159, 176, 86, 0.9);
 }
 
 .interface {

@@ -1,6 +1,6 @@
 :root {
     --primary: rgba(20, 120, 160, 0.9);
-    --secondary: rgb(25, 188, 157, 0.9);
+    --secondary: rgba(159, 176, 86, 0.9);
 }
 
 .interface {
@@ -94,4 +94,10 @@
 
 .teamNameInput {
     width: 15%;
+}
+
+@media only screen and (max-width: 523.5px) {
+    .flagSection {
+        height: 150px;
+    }
 }
