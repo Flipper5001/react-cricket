@@ -48,6 +48,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth,
     addNewTeam(teamName: String!, players: [String]!): Team,
     changeTeam(players: [String]!, teamId: ID!): Team,
+    setUserTeam(team: ID!, userId: ID!): User,
   }
 
   # type Mutation {

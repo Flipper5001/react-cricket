@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -14,36 +14,45 @@ export const LOGIN_USER = gql`
 
 export const ADD_USER = gql`
   mutation AddUser($username: String!, $email: String!, $password: String!) {
-  addUser(username: $username, email: $email, password: $password) {
-    token
-  
+    addUser(username: $username, email: $email, password: $password) {
+      token
+    }
   }
-}
 `;
 
 export const ADD_SCORE = gql`
   mutation AddNewScore($userId: ID!, $teamId: ID!, $score: String!) {
-  addNewScore(userId: $userId, teamId: $teamId, score: $score) {
-    score
+    addNewScore(userId: $userId, teamId: $teamId, score: $score) {
+      score
+    }
   }
-}
 `;
 
 export const ADD_TEAM = gql`
   mutation AddNewTeam($teamName: String!, $players: [String]!) {
-  addNewTeam(teamName: $teamName, players: $players) {
-    teamName
-    players
+    addNewTeam(teamName: $teamName, players: $players) {
+      teamName
+      players
+    }
+  }
+`;
+
+export const CHANGE_TEAM = gql`
+  mutation ChangeTeam($players: [String]!, $teamId: ID!) {
+    changeTeam(players: $players, teamId: $teamId) {
+      teamName
+      players
+    }
+  }
+`;
+
+export const SET_USER_TEAM = gql`
+  mutation SetUserTeam($team: ID!, $userId: ID!) {
+  setUserTeam(team: $team, userId: $userId) {
+    username
+    team {
+      _id
+    }
   }
 }
 `;
-
-export const CHANGE_TEAM = gql `
-mutation ChangeTeam($players: [String]!, $teamId: ID!) {
-  changeTeam(players: $players, teamId: $teamId) {
-    teamName
-    players
-  }
-}
-`;
-
