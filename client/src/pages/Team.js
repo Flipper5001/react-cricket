@@ -107,44 +107,7 @@ const Team = () => {
           Your Team
         </h2>
         <TeamForm/>
-        
-        {/* <Form className={css.teamlist} onSubmit={handleFormSubmit}>
-          <Form.Group className={css.formGroup}>
-            <div className={css.teamNameInput}>
-              <h4>Team Name:</h4>
-            </div>
 
-            <Form.Control />
-          </Form.Group>
-
-          <Form.Group className={css.formGroup}>
-            <i
-              className="fa fa-user-circle fa-2xl pr-1"
-              style={{ width: "40px" }}
-              aria-hidden="true"
-            ></i>
-
-            <Form.Control  />
-            <Button 
-            variant="primary"
-            type="button"
-            onClick={handleClick}
-            className={css.logoutButton}>
-              Add Player!
-            </Button>
-          </Form.Group>
-          <div className={css.formReturn}>
-            <Button
-              variant="primary"
-              type="submit"
-              style={{ cursor: "pointer" }}
-              className={css.logoutButton}
-              to=""
-            >
-              Start!
-            </Button>
-          </div>
-        </Form> */}
       </div>
     </div>
   );

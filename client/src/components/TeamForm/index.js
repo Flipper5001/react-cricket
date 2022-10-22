@@ -13,7 +13,14 @@ import css from "./../../pages/Team.module.css";
 import auth from "../../utils/auth";
 
 const TeamForm = () => {
-  const [playerList, setplayerList] = useState([{ player: "" }]);
+  const [playerList, setplayerlist] = useState([{ player: "" }]);
+  const [teamName, setTeamName] = useState('')
+
+  const handleTeamName = (event) => {
+    const {name, value} = event.target;
+
+    setTeamName(value)
+  }
 
   const fullTeam = playerList.length == 11;
 
@@ -21,31 +28,41 @@ const TeamForm = () => {
     const { name, value } = e.target;
     const list = [...playerList];
     list[index][name] = value;
-    setplayerList(list);
+    setplayerlist(list);
   };
 
   const handlePlayerRemove = (index) => {
     const list = [...playerList];
     list.splice(index, 1);
-    setplayerList(list);
+    setplayerlist(list);
   };
 
   const handlePlayerAdd = () => {
-    setplayerList([...playerList, { player: "" }]);
+    setplayerlist([...playerList, { player: "" }]);
   };
 
+  // TODO: Set user's team to the new team we made
+    // when setting team, teamid returned
+    // set teamid to user
   const handleTeamSubmit = (event) => {
     event.preventDefault()
+    console.log(teamName)
     let players = playerList.map((a) => a.player);
-    
+
+
+
     console.log(players);
   };
 
   return (
-    <form className="App" autoComplete="off">
+    <form className="App" autoComplete="off" onSubmit={handleTeamSubmit}>
       <div className="d-flex row">
         <div className="col-6">
           <div className="form-field">
+            <div>
+                <input name="teamName" type="text" onChange={handleTeamName}>
+                </input>
+            </div>
             <label htmlFor="player">Choose 11 Players</label>
             {playerList.map((singlePlayer, index) => (
               <>
@@ -86,7 +103,7 @@ const TeamForm = () => {
           </div>
           <div>
             {playerList.length >= 11 && (
-              <button type="submit" onSubmit={handleTeamSubmit}>
+              <button type="submit">
                 Submit Team!
               </button>
             )}
