@@ -9,14 +9,13 @@ import {
 } from "../utils/queries";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import TeamForm from "../components/TeamForm";
 import css from "./Team.module.css";
 import Auth from "../utils/auth";
 import australiaImage from "../assets/australia.png";
 import newzealandImage from "../assets/newzealand.png";
 import southafricaImage from "../assets/southafrica.png";
 import englandImage from "../assets/england.png";
-import { ADD_TEAM, SET_USER_TEAM } from "../utils/mutations";
-import TeamForm from "../components/TeamForm";
 
 const Team = () => {
 

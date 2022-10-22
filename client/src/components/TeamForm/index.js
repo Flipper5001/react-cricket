@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, useParams, Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import {
-  QUERY_ME,
-  QUERY_BY_NAME,
-  QUERY_TEAMS,
-  QUERY_TEAM,
-} from "../../utils/queries";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import css from "./../../pages/Team.module.css";
-import auth from "../../utils/auth";
+import { QUERY_ME } from "../../utils/queries";
+import { ADD_TEAM, SET_USER_TEAM } from "../../utils/mutations";
+import { Navigate } from "react-router-dom";
 
 const TeamForm = () => {
   const [playerList, setplayerlist] = useState([{ player: "" }]);
@@ -41,17 +33,32 @@ const TeamForm = () => {
     setplayerlist([...playerList, { player: "" }]);
   };
 
-  // TODO: Set user's team to the new team we made
-    // when setting team, teamid returned
-    // set teamid to user
-  const handleTeamSubmit = (event) => {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userId = data?.me._id;
+
+  const [addNewTeam, { error }] = useMutation(ADD_TEAM);
+  const [setUserTeam, { fault }] = useMutation(SET_USER_TEAM);
+
+  const handleTeamSubmit = async (event) => {
     event.preventDefault()
-    console.log(teamName)
     let players = playerList.map((a) => a.player);
 
+    try {
+      const teamData = await addNewTeam({
+        variables: { teamName, players },
+      })
 
+      const team = teamData.data?.addNewTeam._id
+      const userTeam = await setUserTeam({
+        variables: { team, userId}
+      })
 
-    console.log(players);
+      
+    } catch (err) {
+      console.error(err);
+    }
+    
+    return <Navigate to="/play" />;
   };
 
   return (
