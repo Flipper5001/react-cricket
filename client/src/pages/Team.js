@@ -264,7 +264,6 @@ const Team = () => {
               type="submit"
               style={{ cursor: "pointer" }}
               className={css.logoutButton}
-              to=""
             >
               Start!
             </Button>

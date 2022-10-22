@@ -95,3 +95,9 @@
 .teamNameInput {
     width: 15%;
 }
+
+@media only screen and (max-width: 523.5px) {
+    .flagSection {
+        height: 150px;
+    }
+}

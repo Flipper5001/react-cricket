@@ -69,6 +69,10 @@ function App() {
                 path="/play" 
                 element={<Play />}
               />
+              <Route 
+                path="*" 
+                element={<Home />}
+              />
             </Routes>
           </div>
           <Footer />

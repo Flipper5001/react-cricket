@@ -34,7 +34,11 @@
 }
 
 .scoreboardFont {
-    padding-left: 10px;
+    padding-left: 15px;
     font-weight: 500;
     margin-bottom: 0px;
+}
+
+.icon {
+    position: absolute;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import bat from '../assets/bat.png';
 import css from './Play.module.css';
 import auth from '../utils/auth';
 
@@ -43,7 +44,10 @@ const Play = () => {
           </div>
           <div className='flex-row align-center mt-2'>
             <div className='col-9'>
-              <p className={css.scoreboardFont}>Dummy Data Batter 1</p>
+              <div className='flex-row'>
+                <p className={css.scoreboardFont}>Dummy Data Batter 1</p>
+                <img src={bat} className={css.icon} style={{maxWidth: "20px"}}></img>
+              </div>
             </div>
             <div className='col-3'>
               <p className={css.scoreboardFont} style={{textAlign: "end"}}>211</p>
@@ -52,7 +56,10 @@ const Play = () => {
           <hr style={hr}/>
           <div className='flex-row align-center'>
             <div className='col-9'>
-              <p className={css.scoreboardFont}>Dummy Data Batter 2</p>
+            <div className='flex-row'>
+                {/* <p className={css.scoreboardFont}>Dummy Data Batter 2</p>   show when odd number is rolled and players swap   */}
+                <img src={bat} className={css.icon} style={{maxWidth: "20px"}}></img>
+              </div>
             </div>
             <div className='col-3'>
               <p className={css.scoreboardFont} style={{textAlign: "end"}}>11</p>
