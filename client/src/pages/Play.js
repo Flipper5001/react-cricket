@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navigate } from 'react-router-dom';
-import bat from '../assets/bat.png';
-import ball from '../assets/ball.png';
-import css from './Play.module.css';
 import auth from '../utils/auth';
-import Game from '../utils/Game';
+import Game from '../components/Game/Game';
 
 const Play = () => {
 
@@ -19,9 +16,9 @@ const Play = () => {
     //
     //}
     // We pass in the old game on every function
-  
-    const [currentScore, setCurrentScore] = useState('');
-    const [ball, setBall] = useState(0);
+ 
+    // const [currentScore, setCurrentScore] = useState('');
+    // const [ball, setBall] = useState(0);
 
     
   // when user is not logged in , kick out
@@ -29,30 +26,18 @@ const Play = () => {
     return <Navigate to="/login" />;
   }
 
-
-  const handleCurrentScore = () => {
-
-  }
-
-
-  const handleBalls = (event) => {
-    setBall(ball ++)
-  }
-
-
   const game = new Game();
 
-  console.log(game)
-
-  const hr = {
-    marginTop: "10px",
-    marginBottom: "10px"
-  }
+  // const hr = {
+  //   marginTop: "10px",
+  //   marginBottom: "10px"
+  // }
 
   return (
     <>
-    <div className='d-flex justify-center mb-3'>
-      <div className={css.scoreboard}>
+    <Game></Game>
+    {/* <div className='d-flex justify-center mb-3'> */}
+      {/* <div className={css.scoreboard}>
         <div className={css.interface}>
           <div className={css.homeHeader}>
             <div className='flex-row align-center'>
@@ -66,7 +51,7 @@ const Play = () => {
                   <h2 className={css.teamName} style={{paddingRight: "10px"}}>Over</h2>
                   <h2 className={css.teamName} >{game.over}</h2>
                   <h2 className={css.teamName} >.</h2>
-                  <h2 className={css.teamName} >{ball}</h2>
+                  <h2 className={css.teamName} >{game.ball}</h2>
                 </div>
               </div>
               <div className='col-3' style={{paddingRight: "5px"}}>
@@ -93,9 +78,9 @@ const Play = () => {
           <div className='flex-row align-center'>
             <div className='col-9'>
             <div className='flex-row'>
-                <p className={css.scoreboardFont}>Dummy Data Batter 2</p>   
+                <p className={css.scoreboardFont}>Dummy Data Batter 2</p>    */}
                 {/* <img src={bat} className={css.icon} style={{maxWidth: "20px"}}></img>      show when odd number is rolled and players swap        */}
-              </div>
+              {/* </div>
             </div>
             <div className='col-3'>
               <p className={css.scoreboardFont} style={{textAlign: "end"}}>{game.batter2}</p>
@@ -131,7 +116,7 @@ const Play = () => {
         <button type='button' className={css.choiceButton} onClick={() => {game.scoop()}}>Scoop</button>
         <button type='button' className={css.choiceButton} onClick={() => {game.swing()}}>Big Swing</button>
       </div>
-    </div>
+    </div> */}
   </>
   );
 };
