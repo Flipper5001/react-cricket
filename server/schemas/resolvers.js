@@ -105,6 +105,13 @@ const resolvers = {
 
       return { token, user };
     },
+    setUserTeam: async (parent, {userId, team}) => {
+      const user = await User.findByIdAndUpdate({_id: userId}, {
+        team
+      }, {new: true});
+
+      return user;
+    }
   },
 };
 
