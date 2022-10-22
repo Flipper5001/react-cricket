@@ -1,0 +1,40 @@
+:root {
+    --primary: rgba(20, 120, 160, 0.9);
+    --secondary: rgb(25, 188, 157, 0.9);
+}
+
+.scoreboard {
+    width: 400px;
+}
+
+.interface {
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.homeHeader {
+    background-color: var(--primary);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.teamName {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0;
+}
+
+.scoreCombo {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.scoreboardFont {
+    padding-left: 10px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}

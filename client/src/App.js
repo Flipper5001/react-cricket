@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Team from './pages/Team';
+import Play from './pages/Play';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -63,6 +64,10 @@ function App() {
               <Route 
                 path="/team/:username" 
                 element={<Team />}
+              />
+              <Route 
+                path="/play" 
+                element={<Play />}
               />
             </Routes>
           </div>
