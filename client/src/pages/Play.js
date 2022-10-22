@@ -22,6 +22,8 @@ const Play = () => {
   
     const [currentScore, setCurrentScore] = useState('');
     const [ball, setBall] = useState(0);
+
+    
   // when user is not logged in , kick out
   if (!auth.loggedIn()) {
     return <Navigate to="/login" />;
@@ -34,7 +36,7 @@ const Play = () => {
 
 
   const handleBalls = (event) => {
-
+    setBall(ball ++)
   }
 
 
@@ -64,7 +66,7 @@ const Play = () => {
                   <h2 className={css.teamName} style={{paddingRight: "10px"}}>Over</h2>
                   <h2 className={css.teamName} >{game.over}</h2>
                   <h2 className={css.teamName} >.</h2>
-                  <h2 className={css.teamName} >{game.ball}</h2>
+                  <h2 className={css.teamName} >{ball}</h2>
                 </div>
               </div>
               <div className='col-3' style={{paddingRight: "5px"}}>
