@@ -31,6 +31,7 @@ export const ADD_SCORE = gql`
 export const ADD_TEAM = gql`
   mutation AddNewTeam($teamName: String!, $players: [String]!) {
     addNewTeam(teamName: $teamName, players: $players) {
+      _id
       teamName
       players
     }

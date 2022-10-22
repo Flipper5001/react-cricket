@@ -57,6 +57,7 @@ export const QUERY_SCORES = gql`
 export const QUERY_ME = gql`
   query me {
     me {
+      _id
       username
       email
       team {
