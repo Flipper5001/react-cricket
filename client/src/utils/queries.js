@@ -67,8 +67,8 @@ export const QUERY_ME = gql`
         _id
       }
       highscore
+    }
   }
-}
 `;
 
 export const QUERY_BY_NAME = gql`

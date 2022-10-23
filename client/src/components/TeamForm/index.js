@@ -5,7 +5,7 @@ import { ADD_TEAM, SET_USER_TEAM } from "../../utils/mutations";
 import { Navigate } from "react-router-dom";
 import css from './TeamForm.module.css';
 
-const TeamForm = () => {
+const TeamForm = (props) => {
   const [playerList, setplayerlist] = useState([{ player: "" }]);
   const [teamName, setTeamName] = useState('')
 
@@ -63,15 +63,15 @@ const TeamForm = () => {
     <Navigate to="/play" />;
   };
 
-  console.log(playerList)
 
   return (
     <form className={css.app} autoComplete="off" onSubmit={handleTeamSubmit}>
+      <p>{props.team.teamName}</p>
       <div className="d-flex row text-center">
         <div className={css.formField}>
           <div className="mb-4">
-              <input className={css.inputField} name="teamName" type="text" onChange={handleTeamName}>
-              </input>
+            <input className={css.inputField} name="teamName" type="text" onChange={handleTeamName}>
+            </input>
           </div>
           <label htmlFor="player" style={{marginBottom: '10px'}}>Choose 11 Players</label>
           {playerList.map((singlePlayer, index) => (
@@ -104,7 +104,6 @@ const TeamForm = () => {
         <div>
         {playerList.map((singlePlayer, index) => (
           <div>
-            {console.log(singlePlayer, index)}
             {playerList.length - 1 === index && playerList.length < 11 && (
               <button
               type="button"

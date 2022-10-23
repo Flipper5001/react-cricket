@@ -37,14 +37,10 @@ const EndGame = (props) => {
 
     }
 
-    
-
-
     // TODO: save highscore to user
     // TODO: move repeated styles into components and create new css that contains just those styles
     // TODO: clean up code and delete any reference to 18
 
-    
     return (
         <div className={css.interface}>
             <div className={css.homeHeader}>
@@ -52,7 +48,7 @@ const EndGame = (props) => {
             </div>
             <div className='text-center mt-3'> 
                 <h1 className={css.header}>Game Over!</h1>
-                <h4 className={css.results}>Well done, you scored {props.score} points.</h4>
+                <h4 className={css.results}>Well done, you scored {props.score} runs.</h4>
                 <div className='flex-column justify-center'>
                     <div className='mx-auto my-4'>
                         <Button onClick={handleSaveScore} className={css.interactiveButton} ref={buttonRef}>
