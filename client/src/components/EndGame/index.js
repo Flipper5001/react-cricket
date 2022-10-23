@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
 import Auth from '../../utils/auth';
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_ME } from '../../utils/queries';
 import { ADD_SCORE } from '../../utils/mutations';
 import css from './EndGame.module.css';
+import  Button  from 'react-bootstrap/Button';
 
 const EndGame = (props) => {
     
+    const score = props.score
     const { loading, data } = useQuery(QUERY_ME);
     const userId = data?.me._id;
     const teamId = data?.me.team._id
 
     const [AddNewScore, { error }] = useMutation(ADD_SCORE);
-    console.log(data)
+
+    const buttonRef = useRef(null);
+
+
+    const handleSaveScore = async () => {
+
+        buttonRef.current.disabled = true
+
+        try {
+            const scoreData = await AddNewScore({
+                variables: {userId, teamId, score}
+            })
+
+        } catch(err) {
+            console.log(err)
+        }
+
+        buttonRef.current.value = "Score saved!"
+
+
+    }
+
+    
 
 
     // TODO: save highscore to user
@@ -31,6 +55,9 @@ const EndGame = (props) => {
                 <h4 className={css.results}>Well done, you scored {props.score} points.</h4>
                 <div className='flex-column justify-center'>
                     <div className='mx-auto my-4'>
+                        <Button onClick={handleSaveScore} className={css.interactiveButton} ref={buttonRef}>
+                            Save your score
+                        </Button>
                         <Link to='/' className={css.interactiveButton}>
                             Return to Home
                         </Link>
