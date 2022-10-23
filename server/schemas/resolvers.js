@@ -14,11 +14,14 @@ const resolvers = {
       return Team.findOne({ _id: teamId });
     },
     users: async () => {
-      const users = await User.find().sort({Score});
+      console.log("hello")
+      const users = await User.find();
+      console.log(users)
       const usersWithScores = await appendHighscoreFieldToUsers(users);
-      // console.log({usersWithScores})
       return usersWithScores;
     },
+
+    
     user: async (parent, { userId }) => {
       const user = await User.findOne({ _id: userId }).populate("team");
       const userWithScore = await appendHighscoreFieldToUser(user);
