@@ -64,11 +64,11 @@ const Signup = () => {
               <Form.Control type="text" name="username" id='username' placeholder='Username' value={formState.name} onChange={handleChange} />
             </Form.Group>
             <Form.Group className={css.formGroup}>
-              <i class="fa fa-envelope fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <i className="fa fa-envelope fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
               <Form.Control type="email" name="email" id='email' placeholder='Email' value={formState.email} onChange={handleChange} />
             </Form.Group>
             <Form.Group className={css.formGroup}>
-              <i class="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
+              <i className="fa fa-unlock fa-2xl pr-1" style={{width: '40px'}} aria-hidden="true"></i>
               <Form.Control type="password" name="password" id='password' placeholder='Password' value={formState.password} onChange={handleChange} />
             </Form.Group>
             <div className='row justify-center'>

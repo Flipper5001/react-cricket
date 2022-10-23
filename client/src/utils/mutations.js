@@ -57,6 +57,8 @@ export const SET_USER_TEAM = gql`
     username
     team {
       _id
+      players
+      teamName
     }
   }
 }

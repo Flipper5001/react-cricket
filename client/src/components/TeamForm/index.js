@@ -55,6 +55,8 @@ const TeamForm = (props) => {
       const userTeam = await setUserTeam({
         variables: { team, userId}
       })
+
+      console.log({userTeam})
       
       
 

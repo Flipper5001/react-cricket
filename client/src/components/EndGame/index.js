@@ -9,37 +9,28 @@ import  Button  from 'react-bootstrap/Button';
 
 const EndGame = (props) => {
     
+    const { loading, data , refetch} = useQuery(QUERY_ME);
     const score = props.score
-    const { loading, data } = useQuery(QUERY_ME);
-    const userId = data?.me._id;
-    const teamId = data?.me.team._id
-
+    const user = data?.me;
+    // const teamId = data?.me.team._id
     const [AddNewScore, { error }] = useMutation(ADD_SCORE);
-
     const buttonRef = useRef(null);
 
 
     const handleSaveScore = async () => {
-
         buttonRef.current.disabled = true
-
         try {
+            const newUser = await refetch();
+            const userId = newUser.data.me._id
+            const teamId = newUser.data.me.team._id
             const scoreData = await AddNewScore({
                 variables: {userId, teamId, score}
             })
-
         } catch(err) {
             console.log(err)
         }
-
         buttonRef.current.value = "Score saved!"
-
-
     }
-
-    // TODO: save highscore to user
-    // TODO: move repeated styles into components and create new css that contains just those styles
-    // TODO: clean up code and delete any reference to 18
 
     return (
         <div className={css.interface}>

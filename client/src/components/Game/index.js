@@ -67,7 +67,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ ballClass: css.ballMiss });
       this.setState({ batClass: css.batMiss });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
       setTimeout(() => {
         this.setState({ animationContainer: "invisible" });
@@ -81,7 +81,7 @@ export default class Game extends Component {
     if (action === "out") {
       this.setState({ outContainer: "visible" });
       this.setState({ outTextClass: css.outText });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -96,7 +96,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ batClass: css.batImg });
       this.setState({ ballClass: css.ballHit });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -225,6 +225,9 @@ export default class Game extends Component {
       );
     }
   }
+
+  // Button with on-click function
+  // On click, call the data & send it to
 
   render() {
     return (

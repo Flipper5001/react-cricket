@@ -17,13 +17,13 @@ const Team = () => {
 
   console.log(data)
   
-  if(data?.me.team.teamName != null)
-  {
-    const team = {
-      teamName: data?.me.team.teamName,
-      players: data?.me.team.players
-    }
-  }
+  // if(data?.me.team.teamName != null)
+  // {
+  //   const team = {
+  //     teamName: data?.me.team.teamName,
+  //     players: data?.me.team.players
+  //   }
+  // }
   
   // const TeamSelect = async (teamId) => {
   //   try {

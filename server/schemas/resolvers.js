@@ -21,7 +21,7 @@ const resolvers = {
       return usersWithScores;
     },
 
-    
+
     user: async (parent, { userId }) => {
       const user = await User.findOne({ _id: userId }).populate("team");
       const userWithScore = await appendHighscoreFieldToUser(user);
@@ -48,6 +48,7 @@ const resolvers = {
         const user = await User.findOne({ _id: context.user._id }).populate('team');
 
         const userWithScore = await appendHighscoreFieldToUser(user);
+        console.log({userWithScore})
         return userWithScore;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -114,7 +115,7 @@ const resolvers = {
     setUserTeam: async (parent, {userId, team}) => {
       const user = await User.findByIdAndUpdate({_id: userId}, {
         team
-      }, {new: true});
+      }, {new: true}).populate('team');
 
       return user;
     }
