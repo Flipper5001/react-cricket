@@ -3,8 +3,11 @@ import css from "./Game.module.css";
 import bat from "../../assets/bat.png";
 import ball from "../../assets/ball.png";
 import EndGame from "../EndGame";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../../utils/queries";
 
 //buttons disappear
+
 
 const hr = {
   marginTop: "10px",
@@ -22,7 +25,7 @@ const shot = {
 export default class Game extends Component {
   constructor() {
     super();
-
+    
     this.state = {
       batter1: 0,
       batter2: 0,
@@ -41,10 +44,10 @@ export default class Game extends Component {
       batMissClass: "",
       outTextClass: "",
       outContainer: "invisible",
-      buttonsClass: "visible"
+      buttonsClass: "visible",
     };
   }
-
+  
   shot(shot) {
     const score = shot[Math.floor(Math.random() * shot.length)];
 
@@ -67,7 +70,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ ballClass: css.ballMiss });
       this.setState({ batClass: css.batMiss });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
       setTimeout(() => {
         this.setState({ animationContainer: "invisible" });
@@ -81,7 +84,7 @@ export default class Game extends Component {
     if (action === "out") {
       this.setState({ outContainer: "visible" });
       this.setState({ outTextClass: css.outText });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -96,7 +99,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ batClass: css.batImg });
       this.setState({ ballClass: css.ballHit });
-      this.setState({buttonsClass: "invisible"})
+    //   this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -226,6 +229,9 @@ export default class Game extends Component {
     }
   }
 
+  // Button with on-click function
+  // On click, call the data & send it to
+
   render() {
     return (
       <>
@@ -242,7 +248,7 @@ export default class Game extends Component {
                         className={css.teamName}
                         style={{ paddingLeft: "10px" }}
                       >
-                        Dummy Team Name
+                        Dummy Team Name 
                       </h2>
                     </div>
                   </div>

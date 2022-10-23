@@ -9,35 +9,27 @@ import  Button  from 'react-bootstrap/Button';
 
 const EndGame = (props) => {
     
-    const { loading, data } = useQuery(QUERY_ME);
+    const { loading, data , refetch} = useQuery(QUERY_ME);
     const score = props.score
     const user = data?.me;
     // const teamId = data?.me.team._id
-
     const [AddNewScore, { error }] = useMutation(ADD_SCORE);
-
     const buttonRef = useRef(null);
 
 
     const handleSaveScore = async () => {
-
         buttonRef.current.disabled = true
-
         try {
-            const userId = user._id
-            const teamId = user.team._id
-
+            const newUser = await refetch();
+            const userId = newUser.data.me._id
+            const teamId = newUser.data.me.team._id
             const scoreData = await AddNewScore({
                 variables: {userId, teamId, score}
             })
-
         } catch(err) {
             console.log(err)
         }
-
         buttonRef.current.value = "Score saved!"
-
-
     }
 
     return (

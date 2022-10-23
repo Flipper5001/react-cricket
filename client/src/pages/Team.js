@@ -13,23 +13,29 @@ const Team = () => {
 
   // TODO: when click flag auto fill team and team name with country
   const { username } = useParams();
-  const { loading, data } = useQuery(QUERY_ME)
+  const { loading, data, refetch} = useQuery(QUERY_ME)
 
-  console.log(data)
-  
-  // if(data?.me.team.teamName != null)
-  // {
-  //   const team = {
-  //     teamName: data?.me.team.teamName,
-  //     players: data?.me.team.players
-  //   }
+  // const team = {
+  //   _id: data?.me.team._id,
+  let teamName;
+  let players;
+
+  if(data?.me.team !== null){
+    teamName = data?.me.team.teamName 
+    players = data?.me.team.players 
+  }
+
   // }
-  
-  // const TeamSelect = async (teamId) => {
+  // const TeamSelect = async () => {
   //   try {
+  //     const getTeam = await refetch();
+  //     const team = {
+  //       _id: getTeam.data.me.team._id,
+  //       teamName: getTeam.data.me.team.teamName,
+  //       players: getTeam.data.me.team.players
+  //     }
       
-  //     const teamData = await useQuery(QUERY_TEAM, {teamId})
-  //     console.log(teamData)
+  //     return 
       
   //   } catch (error) {
   //     console.log(error)
@@ -117,8 +123,12 @@ const Team = () => {
         </h2>
         <div className="mx-auto">
           <div className={css.section}>
-            {/* {<TeamForm team={team}/>} */}
-            <TeamForm/>
+            {teamName !== undefined && (
+              <TeamForm teamName={teamName} players={players}/>
+            )}
+            {teamName === undefined && (
+              <TeamForm />
+            )}
           </div>
         </div>
       </div>
