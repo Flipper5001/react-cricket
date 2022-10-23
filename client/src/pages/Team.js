@@ -9,7 +9,6 @@ import southafricaImage from "../assets/southafrica.png";
 import englandImage from "../assets/england.png";
 const Team = () => {
 
-  // TODO: CSS styling for team selection
   // TODO: when click flag auto fill team and team name with country
 
   const { username } = useParams();

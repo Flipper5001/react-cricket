@@ -53,7 +53,6 @@ const TeamForm = () => {
       const userTeam = await setUserTeam({
         variables: { team, userId}
       })
-
       
     } catch (err) {
       console.error(err);

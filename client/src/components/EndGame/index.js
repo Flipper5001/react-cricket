@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Auth from '../../utils/auth';
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_ME } from '../../utils/queries';
+import { ADD_SCORE } from '../../utils/mutations';
 
 const EndGame = (props) => {
     
+    const { loading, data } = useQuery(QUERY_ME);
+    const userId = data?.me._id;
+    const teamId = data?.me.team._id
+
+    const [AddNewScore, { error }] = useMutation(ADD_SCORE);
+    console.log(data)
+
+
     // TODO: CSS Styling for page
     // TODO: save highscore to user
     // TODO: move repeated styles into components and create new css that contains just those styles

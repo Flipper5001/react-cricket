@@ -64,9 +64,9 @@ export const QUERY_ME = gql`
         teamName
         players
         _id
+      } 
     }
   }
-}
 `;
 
 export const QUERY_BY_NAME = gql`
