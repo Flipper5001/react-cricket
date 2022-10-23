@@ -36,7 +36,7 @@ export default class Game extends Component {
             over: 0,
             batter1OnStrike: true,
             gameOver: false,
-            hitClass: "hide",
+            hitClass: "invisible",
         }
     }
 
@@ -57,12 +57,19 @@ export default class Game extends Component {
         this.calculateScore(action)
 
         const { classNames } = this.state;
-
-        if(action === "out") {
-
-            this.setState({classNames: classNames ? "" : "animation"})
+        if (action == "miss") {
 
         }
+        else if (action == "out") {
+            
+        } else {
+            this.setState({hitClass: "visible"})
+
+            
+
+        }
+
+
 
 
     }

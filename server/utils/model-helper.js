@@ -32,7 +32,9 @@ async function appendHighscoreFieldToUsers(users) {
 }
 
 async function appendHighscoreFieldToUser(user) {
+
   const currentUserScores = await Score.find({ user: user._id });
+
 
 
   if(currentUserScores.length == 0 ) {
