@@ -1,6 +1,8 @@
 import React from 'react';
 import css from './../../pages/Home.module.css';
 
+// TODO: display logged in user highscore if they have played and have a score in DB
+
 const Highscores = ({
     scores
 }) => {

@@ -5,7 +5,6 @@ import css from './Home.module.css';
 import { useQuery } from '@apollo/client';
 import auth from '../utils/auth';
 import { QUERY_TOP_5_SCORES } from '../utils/queries';
-import EndGame from '../components/EndGame';
 
 const Home = () => {
   function renderGameButton(){
