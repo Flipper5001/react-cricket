@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import { ADD_TEAM, SET_USER_TEAM } from "../../utils/mutations";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import css from './TeamForm.module.css';
 
 const TeamForm = (props) => {
+  const navigate = useNavigate();
+
   const [playerList, setplayerlist] = useState([{ player: "" }]);
   const [teamName, setTeamName] = useState('')
 
@@ -40,7 +42,7 @@ const TeamForm = (props) => {
   const [addNewTeam, { error }] = useMutation(ADD_TEAM);
   const [setUserTeam, { fault }] = useMutation(SET_USER_TEAM);
 
-  const handleTeamSubmit = async (event) => {
+  const HandleTeamSubmit = async (event) => {
     event.preventDefault()
     let players = playerList.map((a) => a.player);
 
@@ -60,13 +62,13 @@ const TeamForm = (props) => {
       console.error(err);
     }
     
-    <Navigate to="/play" />;
+    navigate('/play')
+
   };
 
 
   return (
-    <form className={css.app} autoComplete="off" onSubmit={handleTeamSubmit}>
-      <p>{props.team.teamName}</p>
+    <form className={css.app} autoComplete="off" onSubmit={HandleTeamSubmit}>
       <div className="d-flex row text-center">
         <div className={css.formField}>
           <div className="mb-4">

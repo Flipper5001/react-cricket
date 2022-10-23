@@ -113,8 +113,8 @@ const Team = () => {
         </h2>
         <div className="mx-auto">
           <div className={css.section}>
-            {<TeamForm team={team}/>}
-            {/* <TeamForm/> */}
+            {/* {<TeamForm team={team}/>} */}
+            <TeamForm/>
           </div>
         </div>
       </div>
