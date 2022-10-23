@@ -37,7 +37,6 @@ const EndGame = (props) => {
 
     }
 
-    // TODO: save highscore to user
     // TODO: move repeated styles into components and create new css that contains just those styles
     // TODO: clean up code and delete any reference to 18
 

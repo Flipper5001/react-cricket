@@ -7,7 +7,7 @@ import australiaImage from "../assets/australia.png";
 import newzealandImage from "../assets/newzealand.png";
 import southafricaImage from "../assets/southafrica.png";
 import englandImage from "../assets/england.png";
-import { QUERY_ME, QUERY_TEAM } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 const Team = () => {
 
@@ -17,13 +17,13 @@ const Team = () => {
 
   console.log(data)
   
-  if(data?.me.team.teamName != null)
-  {
-    const team = {
-      teamName: data?.me.team.teamName,
-      players: data?.me.team.players
-    }
-  }
+  // if(data?.me.team.teamName != null)
+  // {
+  //   const team = {
+  //     teamName: data?.me.team.teamName,
+  //     players: data?.me.team.players
+  //   }
+  // }
   
   // const TeamSelect = async (teamId) => {
   //   try {
@@ -85,6 +85,7 @@ const Team = () => {
             <button
               className={css.flag}
               style={newzealand}
+
               // onClick={TeamSelect("6347effea0eb2c9311397fd3")}
               id="newzealand"
             ></button>
@@ -112,8 +113,8 @@ const Team = () => {
         </h2>
         <div className="mx-auto">
           <div className={css.section}>
-            {<TeamForm team={team}/>}
-            {/* <TeamForm/> */}
+            {/* {<TeamForm team={team}/>} */}
+            <TeamForm/>
           </div>
         </div>
       </div>

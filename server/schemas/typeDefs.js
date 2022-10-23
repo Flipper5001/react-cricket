@@ -36,10 +36,6 @@ const typeDefs = gql`
     topFiveScores: [Score],
     user(userId: ID!): User,
     userByName(username: String!): User,
-    # team(teamName: String): Team
-    # user(username: String!): User
-    # thoughts(username: String): [Thought]
-    # thought(thoughtId: ID!): Thought
     me: User
   }
   type Mutation {
@@ -50,15 +46,6 @@ const typeDefs = gql`
     changeTeam(players: [String]!, teamId: ID!): Team,
     setUserTeam(team: ID!, userId: ID!): User,
   }
-
-  # type Mutation {
-    # addUser(username: String!, email: String!, password: String!): Auth
-    # login(email: String!, password: String!): Auth
-    # addThought(thoughtText: String!): Thought
-    # addComment(thoughtId: ID!, commentText: String!): Thought
-    # removeThought(thoughtId: ID!): Thought
-    # removeComment(thoughtId: ID!, commentId: ID!): Thought
-  # }
 `;
 
 module.exports = typeDefs;

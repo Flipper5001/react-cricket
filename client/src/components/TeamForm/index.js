@@ -54,17 +54,20 @@ const TeamForm = (props) => {
         variables: { team, userId}
       })
       
+      
+
     } catch (err) {
       console.error(err);
     }
     
-    return <Navigate to="/play" />;
+    <Navigate to="/play" />;
   };
 
+  console.log(playerList)
 
   return (
     <form className={css.app} autoComplete="off" onSubmit={handleTeamSubmit}>
-      <p>{props.team.teamName}</p>
+      {/* <p>{props.team.teamName}</p> */}
       <div className="d-flex row text-center">
         <div className={css.formField}>
           <div className="mb-4">
@@ -73,7 +76,6 @@ const TeamForm = (props) => {
           </div>
           <label htmlFor="player" style={{marginBottom: '10px'}}>Choose 11 Players</label>
           {playerList.map((singlePlayer, index) => (
-            <>
               <div key={index} className={css.services}>
                 <div className={css.firstDivision}>
                   <input
@@ -98,7 +100,6 @@ const TeamForm = (props) => {
                   )}
                 </div>
               </div>
-            </>
           ))}
         </div>
         <div>
