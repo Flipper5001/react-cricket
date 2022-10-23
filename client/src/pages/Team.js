@@ -9,7 +9,6 @@ import southafricaImage from "../assets/southafrica.png";
 import englandImage from "../assets/england.png";
 const Team = () => {
 
-  // TODO: CSS styling for team selection
   // TODO: when click flag auto fill team and team name with country
 
   const { username } = useParams();
@@ -75,12 +74,15 @@ const Team = () => {
         </div>
       </div>
 
-      <div className="flex-row justify-center mb-3">
-        <h2 className={css.header} id={css.mobileHeader}>
+      <div className="flex-column justify-center mb-3">
+        <h2 className={css.header}>
           Your Team
         </h2>
-        <TeamForm/>
-
+        <div className="mx-auto">
+          <div className={css.section}>
+            <TeamForm/>
+          </div>
+        </div>
       </div>
     </div>
   );

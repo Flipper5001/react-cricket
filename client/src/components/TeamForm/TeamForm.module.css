@@ -1,0 +1,82 @@
+:root {
+  --primary: rgba(20, 120, 160, 0.9);
+  --secondary: rgba(159, 176, 86, 0.9);
+}
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.formField {
+  flex: 2;
+}
+.output {
+  margin-left: 3rem;
+  flex: 1;
+}
+.formField label {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(84, 84, 84);
+}
+
+.inputField {
+  height: 35px;
+  width: 100%;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.inputField:focus {
+  border: 1px solid rgb(138, 138, 138);
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.firstDivision {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.removeButton {
+  background-color: rgb(214, 72, 72);
+  text-decoration: none;
+  color: white;
+  border: 0;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  margin-left: 5px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.addButton {
+  background-color: var(--secondary);
+  text-decoration: none;
+  color: white;
+  border: 0;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 1.25rem;
+}

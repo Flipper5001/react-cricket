@@ -5,8 +5,6 @@ const { authMiddleware } = require('./utils/auth');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-const { User } = require('./models');
-const { appendHighscoreFieldToUsers } = require('./utils/model-helper');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,15 +13,6 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-
-app.get('/playground', async (req, res) => {
-
-  const users = await User.find()
-  console.log({users})
-  const transformed = await appendHighscoreFieldToUsers(users);
-    res.json(transformed);
-  
-})
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
