@@ -27,7 +27,6 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -44,11 +43,6 @@ const Login = (props) => {
       password: '',
     });
   };
-
-  if (Auth.loggedIn()) {
-    const username = Auth.getUser().username;
-    return <Navigate to={"/team/" + username} />;
-  }
 
   return (
     <div className={css.interface}>

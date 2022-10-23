@@ -37,23 +37,6 @@ const EndGame = (props) => {
 
     }
 
-    
-
-    const newHighscore = async (score) => {
-        try {
-            console.log(user)
-            console.log(team)
-            console.log(typeof score, score)
-            
-            const { data } = await AddNewScore({
-                variables: { user, team, score },
-            })
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     // TODO: save highscore to user
     // TODO: move repeated styles into components and create new css that contains just those styles
     // TODO: clean up code and delete any reference to 18

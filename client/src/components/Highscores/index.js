@@ -13,9 +13,6 @@ const Highscores = ({
         return <h1>No current highscores</h1>
     }
 
-    const user = Auth.getUser()
-    console.log(user)
-
     return (
         <div className='text-center'>
             <div className={css.highscoresHeader}>
@@ -35,14 +32,14 @@ const Highscores = ({
                 <hr className={css.scoreHr}></hr>
             </div>    
             ))}
-            {Auth.getUser() && (
+            {Auth.loggedIn() && (
             <div>
                 <div className={css.highscoresHeader} style={{borderBottomRightRadius: '10px', borderBottomLeftRadius: '10px'}}>
                     <div className="col-12 my-1 py-1">
                         <div className='d-flex align-items-center align-middle row m-auto' style={{color: "white"}}>
-                            <div className='col-4'><p className='my-auto'>{user.username}</p></div>
+                            {/* <div className='col-4'><p className='my-auto'>{user.username}</p></div> */}
                             {/* <div className='col-4'><p className='my-auto'>{user.team.teamName}</p></div> */}
-                            <div className='col-4'><p className='my-auto'>{user.highscore}</p></div>
+                            {/* <div className='col-4'><p className='my-auto'>{user.highscore}</p></div> */}
                         </div>
                     </div>
                 </div>
