@@ -64,7 +64,11 @@ const Team = () => {
 
   if(loading){
     return (
-      <p>getting ready</p>
+      <div className={css.interface}>
+        <div className={css.homeHeader}>
+          <h2 className={css.logoHeader}>Getting Ready!</h2>
+        </div>
+      </div>
     )
   }
 

@@ -9,10 +9,10 @@ import  Button  from 'react-bootstrap/Button';
 
 const EndGame = (props) => {
     
-    const score = props.score
     const { loading, data } = useQuery(QUERY_ME);
-    const userId = data?.me._id;
-    const teamId = data?.me.team._id
+    const score = props.score
+    const user = data?.me;
+    // const teamId = data?.me.team._id
 
     const [AddNewScore, { error }] = useMutation(ADD_SCORE);
 
@@ -24,6 +24,9 @@ const EndGame = (props) => {
         buttonRef.current.disabled = true
 
         try {
+            const userId = user._id
+            const teamId = user.team._id
+
             const scoreData = await AddNewScore({
                 variables: {userId, teamId, score}
             })
@@ -36,9 +39,6 @@ const EndGame = (props) => {
 
 
     }
-
-    // TODO: move repeated styles into components and create new css that contains just those styles
-    // TODO: clean up code and delete any reference to 18
 
     return (
         <div className={css.interface}>
