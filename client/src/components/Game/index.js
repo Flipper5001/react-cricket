@@ -3,14 +3,10 @@ import css from "./Game.module.css";
 import bat from "../../assets/bat.png";
 import ball from "../../assets/ball.png";
 import EndGame from "../EndGame";
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
-import Team from "../TeamName";
-import TeamPlayers from "../TeamPlayers";
-
 
 //buttons disappear
-
 
 
 const hr = {
@@ -29,7 +25,7 @@ const shot = {
 export default class Game extends Component {
   constructor() {
     super();
-
+    
     this.state = {
       batter1: 0,
       batter2: 0,
@@ -48,11 +44,10 @@ export default class Game extends Component {
       batMissClass: "",
       outTextClass: "",
       outContainer: "invisible",
-      buttonsClass: "visible"
+      buttonsClass: "visible",
     };
   }
-
-
+  
   shot(shot) {
     const score = shot[Math.floor(Math.random() * shot.length)];
 
@@ -253,7 +248,7 @@ export default class Game extends Component {
                         className={css.teamName}
                         style={{ paddingLeft: "10px" }}
                       >
-                        <Team></Team>
+                        Dummy Team Name 
                       </h2>
                     </div>
                   </div>
@@ -368,7 +363,6 @@ export default class Game extends Component {
                 </div>
               </div>
             </div>
-            
 
             <div className={css.animations}>
               <div className={this.state.outContainer}>

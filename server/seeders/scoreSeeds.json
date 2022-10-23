@@ -1,22 +1,22 @@
 [
   {
-    "user_id": "6347f3f241da280fb7606e70",
-    "team_id": "6347effea0eb2c9311397fcd",
-    "score": "99"
+    "user": "6347f3f241da280fb7606e70",
+    "team": "6347effea0eb2c9311397fcd",
+    "score": 99
   },
   {
-    "user_id": "6347f3f241da280fb7606e71",
-    "team_id": "6347effea0eb2c9311397fcf",
-    "score": "85"
+    "user": "6347f3f241da280fb7606e71",
+    "team": "6347effea0eb2c9311397fcf",
+    "score": 85
   },
   {
-    "user_id": "6347f3f241da280fb7606e72",
-    "team_id": "6347effea0eb2c9311397fd1",
-    "score": "84"
+    "user": "6347f3f241da280fb7606e72",
+    "team": "6347effea0eb2c9311397fd1",
+    "score": 84
   },
   {
-    "user_id": "6347f3f241da280fb7606e73",
-    "team_id": "6347effea0eb2c9311397fd3",
-    "score": "70"
+    "user": "6347f3f241da280fb7606e73",
+    "team": "6347effea0eb2c9311397fd3",
+    "score": 70
   }
 ]

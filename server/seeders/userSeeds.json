@@ -4,27 +4,27 @@
     "username": "Sir DB",
     "email": "sirbd@room7.dreamteam",
     "password": "password01",
-    "team_id": "6347effea0eb2c9311397fcd"
+    "team": "6347effea0eb2c9311397fcd"
   },
   {
     "_id": "6347f3f241da280fb7606e71",
     "username": "HowzatMan",
     "email": "howzatman@room7.dreamteam",
     "password": "password02",
-    "team_id": "6347effea0eb2c9311397fcf"
+    "team": "6347effea0eb2c9311397fcf"
   },
   {
     "_id": "6347f3f241da280fb7606e72",
     "username": "All out for naught",
     "email": "aofn@room7.dreamteam",
     "password": "password03",
-    "team_id": "6347effea0eb2c9311397fd1"
+    "team": "6347effea0eb2c9311397fd1"
   },
   {
     "_id": "6347f3f241da280fb7606e73",
     "username": "Six and Out",
     "email": "6andout@room7.dreamteam",
     "password": "password04",
-    "team_id": "6347effea0eb2c9311397fd3"
+    "team": "6347effea0eb2c9311397fd3"
   }
 ]
