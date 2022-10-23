@@ -8,10 +8,10 @@ import { useQuery } from "@apollo/client";
 const Highscores = ({ scores }) => {
 
   const { loading, data } = useQuery(QUERY_ME);
-  let loggedInUser = true;
+  let personalHighscore = false;
 
-  if(data === undefined) {
-    loggedInUser = false
+  if(data?.me.highscore) {
+    personalHighscore = true
   } 
 
    if (!scores.length) {
@@ -55,7 +55,7 @@ const Highscores = ({ scores }) => {
             {loading ? (
                 <p className="my-auto">Loading...</p>
             ): (
-                loggedInUser && 
+                personalHighscore && 
                 <p className="my-auto">Your highscore: {data.me.highscore}</p>
                 // 
             )}
