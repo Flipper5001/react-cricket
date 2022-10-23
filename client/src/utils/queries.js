@@ -79,6 +79,7 @@ export const QUERY_BY_NAME = gql`
       teamName
       players
     }
+    highscore
   }
 }
 `;
