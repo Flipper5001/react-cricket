@@ -35,7 +35,7 @@
     align-items: center;
     flex-wrap: wrap;
     height: 100px;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -96,7 +96,7 @@
     width: 15%;
 }
 
-@media only screen and (max-width: 523.5px) {
+@media only screen and (max-width: 767.5px) {
     .flagSection {
         height: 150px;
     }
