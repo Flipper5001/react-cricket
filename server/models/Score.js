@@ -2,19 +2,19 @@ const { Schema, model } = require('mongoose');
 
 const scoreSchema = new Schema({
 
-  user_id: 
+  user: 
     {
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-  team_id: 
+  team: 
     {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'Team',
     },
   score: 
     {
-      type: String,
+      type: Number,
       required: false,
     },
 });

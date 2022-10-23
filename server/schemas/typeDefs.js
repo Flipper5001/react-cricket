@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -6,20 +6,21 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    team_id: Team
+    team: Team
+    highscore: Int
   }
 
   type Score {
     _id: ID
-    user_id: User!
-    team_id: User
-    score: String
+    user: User
+    team: Team
+    score: Int
   }
 
   type Team {
     _id: ID
     teamName: String
-    playerName: [String]!
+    players: [String]
   }
 
   type Auth {
@@ -28,21 +29,23 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    # user(username: String!): User
-    # thoughts(username: String): [Thought]
-    # thought(thoughtId: ID!): Thought
-    # me: User
+    users: [User],
+    teams: [Team],
+    team(teamId: ID!): Team,
+    scores: [Score],
+    topFiveScores: [Score],
+    user(userId: ID!): User,
+    userByName(username: String!): User,
+    me: User
   }
-
-  # type Mutation {
-    # addUser(username: String!, email: String!, password: String!): Auth
-    # login(email: String!, password: String!): Auth
-    # addThought(thoughtText: String!): Thought
-    # addComment(thoughtId: ID!, commentText: String!): Thought
-    # removeThought(thoughtId: ID!): Thought
-    # removeComment(thoughtId: ID!, commentId: ID!): Thought
-  # }
+  type Mutation {
+    addNewScore(user: ID!, team: ID!, score: String!): Score,
+    login(email: String!, password: String!): Auth,
+    addUser(username: String!, email: String!, password: String!): Auth,
+    addNewTeam(teamName: String!, players: [String]!): Team,
+    changeTeam(players: [String]!, teamId: ID!): Team,
+    setUserTeam(team: ID!, userId: ID!): User,
+  }
 `;
 
 module.exports = typeDefs;

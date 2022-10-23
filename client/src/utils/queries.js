@@ -1,46 +1,58 @@
 import { gql } from '@apollo/client';
 
+// Query Team by ID
+export const QUERY_TEAM = gql`
+  query team($_id: ID!) {
+    team(_id: $_id) {
+      _id
+      teamName
+      players
+    }
+  }
+`;
+
+// Query for all teams
+export const QUERY_TEAMS = gql`
+  query getTeams {
+    team {
+      _id
+      teamName
+      players
+    }
+  }
+
+`;
+
 export const QUERY_USER = gql`
-  query user($username: String!) {
-    user(username: $username) {
+  query User($userId: ID!) {
+  user(userId: $userId) {
+    username
+    email
+    team {
+      teamName
+      players
       _id
+    }
+  }
+}
+
+`;
+
+export const QUERY_SCORES = gql`
+  query getAllScores {
+  scores {
+    _id
+    score
+    user {
       username
-      email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
-  }
-`;
-
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+    team {
+      teamName
+      players
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
     }
   }
-`;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
-  }
+}
 `;
 
 export const QUERY_ME = gql`
@@ -49,12 +61,43 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      team {
+        teamName
+        players
         _id
-        thoughtText
-        thoughtAuthor
-        createdAt
       }
+      highscore
     }
   }
 `;
+
+export const QUERY_BY_NAME = gql`
+  query UserByName($username: String!) {
+  userByName(username: $username) {
+    email
+    _id
+    username
+    team {
+      teamName
+      players
+    }
+    highscore
+  }
+}
+`;
+
+export const QUERY_TOP_5_SCORES = gql `
+  query TopFiveScores {
+  topFiveScores {
+    _id
+    score
+    team {
+      teamName
+    }
+    user {
+      username
+    }
+  }
+}
+
+`
