@@ -359,7 +359,6 @@ export default class Game extends Component {
             </div>
 
             <div className={css.animations}>
-               {console.log(this.state.outContainer)} 
               <div className={this.state.outContainer}>
                 <div className={this.state.outTextClass}>
                   <h1>OUT!</h1>

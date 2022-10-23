@@ -115,8 +115,13 @@
   transform: translate(50%, -50%);
 }
 
+.batContainer img {
+    max-height: 100%;
+}
+
+
 .batImg {
-  height: 100%;
+  max-height: 100%;
   transform: rotate(30deg);
   animation: bat-hit 1s;
 }

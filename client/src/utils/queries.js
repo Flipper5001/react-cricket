@@ -66,8 +66,12 @@ export const QUERY_ME = gql`
         _id
       }
       highscore
+<<<<<<<<< Temporary merge branch 1
     }
+=========
+>>>>>>>>> Temporary merge branch 2
   }
+}
 `;
 
 export const QUERY_BY_NAME = gql`
