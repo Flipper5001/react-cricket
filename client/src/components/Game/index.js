@@ -36,6 +36,7 @@ export default class Game extends Component {
             over: 0,
             batter1OnStrike: true,
             gameOver: false,
+            hitClass: "hide",
         }
     }
 
@@ -54,6 +55,16 @@ export default class Game extends Component {
     showAnimation(action) {
         
         this.calculateScore(action)
+
+        const { classNames } = this.state;
+
+        if(action === "out") {
+
+            this.setState({classNames: classNames ? "" : "animation"})
+
+        }
+
+
     }
     
     calculateScore(score) {
@@ -242,7 +253,16 @@ export default class Game extends Component {
                 </div>
                 </div>
                 <div className={css.animations}>
+                    <div className={this.state.hitClass}>
+                        {console.log(this.state.hitClass)}
 
+                        <div className={css.batContainer}>
+                            <img src="./assets/bat.png" className={css.batImg}/>
+                        </div>
+                        <div className={css.ballHit}>
+
+                        </div>
+                    </div>
                 </div>
                 <div className={css.playground}>
                 <div className={css.choices}>

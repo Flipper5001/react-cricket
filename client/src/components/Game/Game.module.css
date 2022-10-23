@@ -1,71 +1,135 @@
 :root {
-    --primary: rgba(20, 120, 160, 0.9);
-    --secondary: rgba(159, 176, 86, 0.9);
+  --primary: rgba(20, 120, 160, 0.9);
+  --secondary: rgba(159, 176, 86, 0.9);
 }
 
 .scoreboard {
-    width: 600px;
+  width: 600px;
 }
 
 .interface {
-    background-color: rgb(255, 255, 255, 0.5);
-    border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 10px;
 }
 
 .homeHeader {
-    background-color: var(--primary);
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  background-color: var(--primary);
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .teamName {
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 0;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0;
 }
 
 .scoreCombo {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .scoreboardFont {
-    padding-left: 15px;
-    font-weight: 500;
-    margin-bottom: 0px;
+  padding-left: 15px;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
 
 .icon {
-    position: absolute;
+  position: absolute;
 }
 
 .choices {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .choiceButton {
-    display: flex;
-    justify-content: center;
-    background-color: var(--secondary) !important;
-    text-decoration: none;
-    color: white;
-    border: 0;
-    height: 40px;
-    border-radius: 5px;
-    text-align: center;
-    width: 150px;
-    padding: 5px;
-    margin: 10px 5px;
-    font-weight: 500;
-    font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary) !important;
+  text-decoration: none;
+  color: white;
+  border: 0;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  width: 150px;
+  padding: 5px;
+  margin: 10px 5px;
+  font-weight: 500;
+  font-size: 1.25rem;
 }
 
 .animations {
-    height: 300px;
+  width: 300px;
+  height: 300px;
+  /* background-color: black;
+  opacity: 50%; */
+  position: absolute;
+  top: 75%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.ballHit {
+  transition: transform 1s;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  animation-fill-mode: forwards;
+  animation-name: ball-hit;
+  animation-duration: 1s;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+@keyframes ball-hit {
+    0% {
+      transform: translate(50%, -50%);
+    }
+    20% {
+      transform: translate(0);
+    }
+  
+    100% {
+      transform: translate(600px, -400px);
+    }
+}
+
+.batContainer {
+  height: 50%;
+  position: absolute;
+  top: 40%;
+  right: 65%;
+  transform: translate(50%, -50%);
+}
+
+.batImg {
+  height: 100%;
+  transform: rotate(30deg);
+  animation: bat-hit 1s;
+}
+
+@keyframes bat-hit {
+    0% {
+        transform: rotate(30deg);
+
+    }
+    100% {
+        transform: rotate(-50deg);
+
+    }
 }
