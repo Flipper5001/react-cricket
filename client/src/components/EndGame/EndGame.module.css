@@ -1,0 +1,55 @@
+:root {
+    --primary: rgba(20, 120, 160, 0.9);
+    --secondary: rgba(159, 176, 86, 0.9);
+}
+
+.interface {
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.homeHeader {
+    background-color: var(--primary);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.logoHeader {
+    font-family: inherit;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin: 5px;
+}
+
+.header {
+    font-family: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+.interactiveButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary) !important;
+    text-decoration: none;
+    color: white;
+    border: 0;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 5px;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.results {
+    font-family: inherit;
+    font-weight: 500;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
