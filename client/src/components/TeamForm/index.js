@@ -54,12 +54,16 @@ const TeamForm = () => {
         variables: { team, userId}
       })
       
+      
+
     } catch (err) {
       console.error(err);
     }
     
-    return <Navigate to="/play" />;
+    <Navigate to="/play" />;
   };
+
+  console.log(playerList)
 
   return (
     <form className={css.app} autoComplete="off" onSubmit={handleTeamSubmit}>
@@ -71,7 +75,6 @@ const TeamForm = () => {
           </div>
           <label htmlFor="player" style={{marginBottom: '10px'}}>Choose 11 Players</label>
           {playerList.map((singlePlayer, index) => (
-            <>
               <div key={index} className={css.services}>
                 <div className={css.firstDivision}>
                   <input
@@ -96,7 +99,6 @@ const TeamForm = () => {
                   )}
                 </div>
               </div>
-            </>
           ))}
         </div>
         <div>

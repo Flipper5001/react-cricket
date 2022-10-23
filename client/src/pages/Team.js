@@ -12,21 +12,13 @@ import { useQuery } from "@apollo/client";
 const Team = () => {
 
   // TODO: when click flag auto fill team and team name with country
+  
+
 
   const { username } = useParams();
 
 
-  const TeamSelect = async (teamId) => {
-    try {
-      
-      const teamData = await useQuery(QUERY_TEAM, {teamId})
 
-      console.log(teamData)
-
-    } catch (error) {
-      
-    }
-  }
 
   // when user is not logged in , kick out
   if (!Auth.loggedIn()) {
@@ -64,12 +56,13 @@ const Team = () => {
             <button
               className={css.flag}
               style={australia}
-              onClick={TeamSelect("6347effea0eb2c9311397fcd")}
+              // onClick={TeamSelect}
               id="australia"
             ></button>
             <button
               className={css.flag}
               style={newzealand}
+
               // onClick={TeamSelect("6347effea0eb2c9311397fd3")}
               id="newzealand"
             ></button>
@@ -97,6 +90,7 @@ const Team = () => {
         </h2>
         <div className="mx-auto">
           <div className={css.section}>
+
             <TeamForm/>
           </div>
         </div>

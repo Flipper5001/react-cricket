@@ -41,6 +41,7 @@ export const QUERY_USER = gql`
 export const QUERY_SCORES = gql`
   query getAllScores {
   scores {
+    _id
     score
     user {
       username
@@ -88,6 +89,7 @@ export const QUERY_BY_NAME = gql`
 export const QUERY_TOP_5_SCORES = gql `
   query TopFiveScores {
   topFiveScores {
+    _id
     score
     team {
       teamName
