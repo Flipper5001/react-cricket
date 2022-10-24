@@ -8,8 +8,12 @@ const Team = () => {
 
     console.log(data);
 
+    if(!data?.me) {
+        refetch();
+    }
+
     return (
-        `${data.me.team.name}`
+        `${data.me.team.teamName}`
 
     )
 }
