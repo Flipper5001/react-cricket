@@ -11,7 +11,6 @@ import { QUERY_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 const Team = () => {
 
-  // TODO: when click flag auto fill team and team name with country
   const { username } = useParams();
   const { loading, data, refetch} = useQuery(QUERY_ME)
 
