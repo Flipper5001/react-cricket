@@ -5,6 +5,7 @@ import ball from "../../assets/ball.png";
 import EndGame from "../EndGame";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
+import Team from "../TeamName";
 
 //buttons disappear
 
@@ -248,7 +249,7 @@ export default class Game extends Component {
                         className={css.teamName}
                         style={{ paddingLeft: "10px" }}
                       >
-                        Dummy Team Name 
+                        <Team/> 
                       </h2>
                     </div>
                   </div>
@@ -290,7 +291,7 @@ export default class Game extends Component {
                     <div className="col-9">
                       <div className="flex-row">
                         <p className={css.scoreboardFont}>
-                          Dummy Data Batter 1
+                          Batter 1
                         </p>
                         {this.state.batter1OnStrike && this.onStrike(true)}
                       </div>
