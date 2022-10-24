@@ -9,7 +9,7 @@ const TeamForm = (props) => {
   const navigate = useNavigate();
 
   const [playerList, setplayerlist] = useState(props.players || [{ player: "" }]);
-  const [teamName, setTeamName] = useState('')
+  const [teamName, setTeamName] = useState(props.teamName || '')
 
   // if props arent empty, set playerlist to props
     // 
