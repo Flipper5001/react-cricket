@@ -1,9 +1,9 @@
-# Project 3
+# Project 3 - React Howzat Cricket
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
 
-a React based version of the portfolio originally created and shown as a part of this application.
+Howzat gives users the full cricket experience in which they choose their own personal strategy in order to see how they stack up against the world’s best players. No two games of Howzat are the same, but they all are sure to bring you fun and competition (edited) 
 
 ## Table of Contents 
 
@@ -21,15 +21,24 @@ a React based version of the portfolio originally created and shown as a part of
 
 ## Installation Instructions
 
-Please follow these steps when running this application. <br/><br/>1. git clone the repository to your local machine. <br/>2. In terminal, CD into the applications folder. <br/>3. Type and enter 'npm install' to install the dependencies. <br/>4. In the package.json remove the 'homepage' key and value under version otherwise the application will launch incorrectly <br/>5. Type and enter 'npm run build' to build the application. <br/>6. Type and enter 'npm run start' to run the application, the application will be live on your localhost. 
+Please follow these steps when running this application. <br/><br/>1. git clone the repository to your local machine. <br/>2. In terminal, CD into the applications folder. <br/>3. Type and enter 'npm install' to install the dependencies. <br/>4. Type and enter 'npm run build' to build the application. <br/>6. The build will be available in your client folder.
 
 ## Usage Information
 
-This project should be used as an example of a react based application as well as used for displaying protfolio pieces in the future.
+As a user:
+I want a fun game to satisfy my love for cricket
+I want a game where I can compare my scores with friends
+I want a game that looks pretty
 
 Sample:
 
-![Screenshot](./public/screenshot.PNG)
+![Screenshot](./assets/images/wireframe%20mobile%20Project%203%20(1).PNG)
+![Screenshot](./assets/images/wireframe%20mobile%20Project%203%201%20(1).PNG)
+![Screenshot](./assets/images/screenshot.PNG)
+![Screenshot](./assets/images/download%20(33).png)
+![Screenshot](./assets/images/download%20(34).png)
+
+
 
 ## License
 
@@ -37,11 +46,7 @@ MIT: Permissive free license software. Please visit https://opensource.org/licen
   
 ## Contributing Guidelines
 
-Flipper5001 was the sole contributer for this project. If you wish to make any contributions, please refer to the questions section for our contact information.
-
-## Test Instructions
-
-npm run test can be used to test the functionality of the website, however tests were not required for this project.
+timmobrien and Flipper5001 were the sole contributers for this project. If you wish to make any contributions, please refer to the questions section for our contact information.
 
 ## Questions
 
@@ -51,4 +56,4 @@ If you have any questions or queries, please contact the following email address
 placeholder@gmail.com
 
 ## Link to site
-https://flipper5001.github.io/react-portfolio/
+https://howzat-cricket.herokuapp.com/
