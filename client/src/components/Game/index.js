@@ -3,6 +3,9 @@ import css from "./Game.module.css";
 import bat from "../../assets/bat.png";
 import ball from "../../assets/ball.png";
 import EndGame from "../EndGame";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../../utils/queries";
+import Team from "../TeamName";
 
 //buttons disappear
 
@@ -246,7 +249,7 @@ export default class Game extends Component {
                         className={css.teamName}
                         style={{ paddingLeft: "10px" }}
                       >
-                        Dummy Team Name 
+                        <Team/> 
                       </h2>
                     </div>
                   </div>

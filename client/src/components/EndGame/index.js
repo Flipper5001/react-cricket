@@ -26,6 +26,8 @@ const EndGame = (props) => {
             const scoreData = await AddNewScore({
                 variables: {userId, teamId, score}
             })
+
+            console.log({scoreData})
         } catch(err) {
             console.log(err)
         }

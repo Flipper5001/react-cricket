@@ -9,7 +9,7 @@ const Team = () => {
     console.log(data);
 
     return (
-        `${data.me.team.players}`
+        `${data.me.team.name}`
 
     )
 }

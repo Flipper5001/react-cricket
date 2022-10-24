@@ -8,19 +8,32 @@ import css from './TeamForm.module.css';
 const TeamForm = (props) => {
   const navigate = useNavigate();
 
-  const [playerList, setplayerlist] = useState([{ player: "" }]);
+  const [playerList, setplayerlist] = useState(props.players || [{ player: "" }]);
   const [teamName, setTeamName] = useState('')
-  console.log(props)
+
+  // if props arent empty, set playerlist to props
+    // 
 
   const handleTeamName = (event) => {
+
+
     const {name, value} = event.target;
+
+
 
     setTeamName(value)
   }
 
+  const propBool = Object.keys(props).length !== 0
+  console.log(props)
+
+  console.log(playerList)
+
   const fullTeam = playerList.length == 11;
 
   const handlePlayerChange = (e, index) => {
+
+
     const { name, value } = e.target;
     const list = [...playerList];
     list[index][name] = value;
@@ -37,6 +50,8 @@ const TeamForm = (props) => {
     setplayerlist([...playerList, { player: "" }]);
   };
 
+  const propPlayers = props.players
+
   const { loading, data } = useQuery(QUERY_ME);
   const userId = data?.me._id;
 
@@ -44,6 +59,8 @@ const TeamForm = (props) => {
   const [setUserTeam, { fault }] = useMutation(SET_USER_TEAM);
 
   const HandleTeamSubmit = async (event) => {
+
+
     event.preventDefault()
     let players = playerList.map((a) => a.player);
 
@@ -59,11 +76,15 @@ const TeamForm = (props) => {
 
       console.log({userTeam})
       
+      navigate('/play')
+
+
       return teamData
 
     } catch (err) {
       console.error(err);
     }
+    console.log('hello')
     
     navigate('/play')
 
@@ -78,7 +99,8 @@ const TeamForm = (props) => {
             </input>
           </div>
           <label htmlFor="player" style={{marginBottom: '10px'}}>Choose 11 Players</label>
-          {props !== null && 
+      
+          {propBool && 
           props.players.map((player, index) => (
             <div key={index} className={css.services}>
                 <div className={css.firstDivision}>
@@ -87,7 +109,7 @@ const TeamForm = (props) => {
                     name="player"
                     type="text"
                     id="player"
-                    value={player}
+                    defaultValue={player}
                     onChange={(e) => handlePlayerChange(e, index)}
                     required
                     />
@@ -106,7 +128,7 @@ const TeamForm = (props) => {
               </div>
             ))
           }
-          {props === null && playerList.map((singlePlayer, index) => (
+          {!propBool && playerList.map((singlePlayer, index) => (
             <div key={index} className={css.services}>
                 <div className={css.firstDivision}>
                   <input
@@ -114,7 +136,7 @@ const TeamForm = (props) => {
                     name="player"
                     type="text"
                     id="player"
-                    value={singlePlayer.player}
+                    defaultValue={singlePlayer.player}
                     onChange={(e) => handlePlayerChange(e, index)}
                     required
                     />
@@ -134,7 +156,7 @@ const TeamForm = (props) => {
           ))}
         </div>
         <div>
-        {props !== null && props.players.map((player, index) => (
+        {/* {props !== null && props.players.map((player, index) => (
           <div>
             {props.players.length - 1 === index && props.players.length < 11 && (
               <button
@@ -146,8 +168,8 @@ const TeamForm = (props) => {
               </button>
             )}
           </div>
-        ))}
-        {props === null && playerList.map((singlePlayer, index) => (
+        ))} */}
+        {!propBool && playerList.map((singlePlayer, index) => (
           <div>
             {playerList.length - 1 === index && playerList.length < 11 && (
               <button
@@ -160,13 +182,13 @@ const TeamForm = (props) => {
             )}
           </div>
         ))}
-          {props !== null && props.players.length >= 11 && (
-            <button type="submit" className={css.addButton}>
+          {propBool && props.players.length >= 11 && (
+            <button type="submit" onClick={HandleTeamSubmit} className={css.addButton}>
               Submit Team!
             </button>
           )}
-          {props === null && playerList.length >= 11 && (
-            <button type="submit" className={css.addButton}>
+          {!propBool && playerList.length >= 11 && (
+            <button type="submit" onClick={HandleTeamSubmit} className={css.addButton}>
               Submit Team!
             </button>
           )}
