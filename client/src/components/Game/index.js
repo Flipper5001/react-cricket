@@ -5,6 +5,7 @@ import ball from "../../assets/ball.png";
 import EndGame from "../EndGame";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
+import Team from "../TeamName";
 
 //buttons disappear
 
@@ -70,7 +71,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ ballClass: css.ballMiss });
       this.setState({ batClass: css.batMiss });
-    //   this.setState({buttonsClass: "invisible"})
+      this.setState({buttonsClass: "invisible"})
 
       setTimeout(() => {
         this.setState({ animationContainer: "invisible" });
@@ -84,7 +85,7 @@ export default class Game extends Component {
     if (action === "out") {
       this.setState({ outContainer: "visible" });
       this.setState({ outTextClass: css.outText });
-    //   this.setState({buttonsClass: "invisible"})
+      this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -99,7 +100,7 @@ export default class Game extends Component {
       this.setState({ animationContainer: "visible" });
       this.setState({ batClass: css.batImg });
       this.setState({ ballClass: css.ballHit });
-    //   this.setState({buttonsClass: "invisible"})
+      this.setState({buttonsClass: "invisible"})
 
 
       setTimeout(() => {
@@ -248,7 +249,6 @@ export default class Game extends Component {
                         className={css.teamName}
                         style={{ paddingLeft: "10px" }}
                       >
-                        Dummy Team Name 
                       </h2>
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export default class Game extends Component {
                             className={css.teamName}
                             style={{ paddingRight: "10px" }}
                           >
-                            Over
+                            Sam's Team 
                           </h2>
                           <h2 className={css.teamName}>{this.state.over}</h2>
                           <h2 className={css.teamName}>.</h2>
@@ -290,7 +290,7 @@ export default class Game extends Component {
                     <div className="col-9">
                       <div className="flex-row">
                         <p className={css.scoreboardFont}>
-                          Dummy Data Batter 1
+                          Batter 1
                         </p>
                         {this.state.batter1OnStrike && this.onStrike(true)}
                       </div>
@@ -309,7 +309,7 @@ export default class Game extends Component {
                     <div className="col-9">
                       <div className="flex-row">
                         <p className={css.scoreboardFont}>
-                          Dummy Data Batter 2
+                          Batter 2
                         </p>
                         {!this.state.batter1OnStrike && this.offStrike(true)}
                       </div>
