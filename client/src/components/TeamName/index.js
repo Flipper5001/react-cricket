@@ -1,20 +1,22 @@
 
-import { useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 
-const Team = () => {
-    const { loading, data , refetch} = useQuery(QUERY_ME);
+const Team = async () => {
+
+    const { loading, data } =  useQuery(QUERY_ME);
 
     console.log(data);
 
-    if(!data?.me) {
-        refetch();
-    }
+    // if(!data?.me) {
+    //     console.log('no data')
+    //     return ('Your Team')
+
+    // }
 
     return (
         `${data.me.team.teamName}`
-
     )
 }
 

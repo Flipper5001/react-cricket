@@ -9,7 +9,7 @@ const TeamForm = (props) => {
   const navigate = useNavigate();
 
   const [playerList, setplayerlist] = useState(props.players || [{ player: "" }]);
-  const [teamName, setTeamName] = useState('')
+  const [teamName, setTeamName] = useState(props.teamName || '')
 
   // if props arent empty, set playerlist to props
     // 
@@ -22,6 +22,7 @@ const TeamForm = (props) => {
 
 
     setTeamName(value)
+
   }
 
   const propBool = Object.keys(props).length !== 0
@@ -128,6 +129,7 @@ const TeamForm = (props) => {
               </div>
             ))
           }
+          
           {!propBool && playerList.map((singlePlayer, index) => (
             <div key={index} className={css.services}>
                 <div className={css.firstDivision}>

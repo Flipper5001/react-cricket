@@ -10,6 +10,7 @@ const Highscores = ({ scores }) => {
   const { loading, data } = useQuery(QUERY_ME);
   let personalHighscore = false;
 
+
   if(data?.me.highscore) {
     personalHighscore = true
   } 
