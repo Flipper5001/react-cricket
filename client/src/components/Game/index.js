@@ -260,7 +260,7 @@ export default class Game extends Component {
                             className={css.teamName}
                             style={{ paddingRight: "10px" }}
                           >
-                            Good luck! 
+                            Sam's Team 
                           </h2>
                           <h2 className={css.teamName}>{this.state.over}</h2>
                           <h2 className={css.teamName}>.</h2>
