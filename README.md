@@ -1,57 +1,54 @@
-# 🐛 Profile Page isn't Displaying the Logged in User's Data
+# Project 3
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Work with a partner to resolve the following issue(s):
+## Description
 
-* As a user, I want to see my own thoughts when I visit the profile page.
+a React based version of the portfolio originally created and shown as a part of this application.
 
-## Expected Behavior
+## Table of Contents 
 
-A logged-in user should see the thoughts that they created when they visit the `/me` route.
+* [Installation](#installation-instructions)
 
-## Actual Behavior
+* [Usage](#usage-information)
 
-The profile page displays a message informing the user that they must be logged in to see the content.
+* [License](#license)
 
-## Steps to Reproduce the Problem
+* [Contributing](#contributing-guidelines)
 
-1. Navigate to `26-Stu_Resolver-Context/Unsolved` from the command line.
+* [Tests](#test-instructions)
 
-2. Run `npm install`, `npm run seed`, and `npm run develop`.
+* [Questions](#questions)
 
-3. Open <localhost:3000/login> in the browser.
+## Installation Instructions
 
-4. Log in with the following test credentials, or create your own user and some thoughts:
+Please follow these steps when running this application. <br/><br/>1. git clone the repository to your local machine. <br/>2. In terminal, CD into the applications folder. <br/>3. Type and enter 'npm install' to install the dependencies. <br/>4. In the package.json remove the 'homepage' key and value under version otherwise the application will launch incorrectly <br/>5. Type and enter 'npm run build' to build the application. <br/>6. Type and enter 'npm run start' to run the application, the application will be live on your localhost. 
 
-    ```json
-    {
-      "email": "lernantino@techfriends.dev",
-      "password": "password10"
-    }
-    ```
+## Usage Information
 
-5. Navigate to <localhost:3000/me>.
+This project should be used as an example of a react based application as well as used for displaying protfolio pieces in the future.
 
-6. The app doesn't display the thoughts from this user.
+Sample:
 
-## Assets
+![Screenshot](./public/screenshot.PNG)
 
-The following image demonstrates the profile page's appearance and functionality:
+## License
 
-![The logged-in user's profile page displays thoughts that they've created and a form to create more thoughts.](./Images/01-screenshot.png)
+MIT: Permissive free license software. Please visit https://opensource.org/licenses/MIT for more information.
+  
+## Contributing Guidelines
 
----
+Flipper5001 was the sole contributer for this project. If you wish to make any contributions, please refer to the questions section for our contact information.
 
-## 💡 Hints
+## Test Instructions
 
-* What is the difference between the server-side `QUERY_ME` and `QUERY_SINGLE_USER` query resolvers that would cause one to work and the other to not work?
+npm run test can be used to test the functionality of the website, however tests were not required for this project.
 
-## 🏆 Bonus
+## Questions
 
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+Other works can be found on https://github.com/Flipper5001.
 
-* How could we implement authentication in a React app without using GraphQL?
+If you have any questions or queries, please contact the following email address and we will get back to you as soon as possible.  
+placeholder@gmail.com
 
-Use [Google](https://www.google.com) or another search engine to research this.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+## Link to site
+https://flipper5001.github.io/react-portfolio/
