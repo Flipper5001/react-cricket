@@ -22,6 +22,7 @@ const TeamForm = (props) => {
 
 
     setTeamName(value)
+
   }
 
   const propBool = Object.keys(props).length !== 0
@@ -128,6 +129,7 @@ const TeamForm = (props) => {
               </div>
             ))
           }
+          
           {!propBool && playerList.map((singlePlayer, index) => (
             <div key={index} className={css.services}>
                 <div className={css.firstDivision}>
